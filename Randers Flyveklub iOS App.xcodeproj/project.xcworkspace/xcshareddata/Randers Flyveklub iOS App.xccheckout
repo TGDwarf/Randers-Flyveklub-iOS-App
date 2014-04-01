@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>AB189CFF-F67B-4DDF-B783-D7CFDFE254F0</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Randers Flyveklub iOS App</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>352A3A9B-CFB8-4CA8-9A6A-C6E9D2361293</key>
+		<string>https://github.com/TGDwarf/Randers-Flyveklub-iOS-App.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Randers Flyveklub iOS App.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>352A3A9B-CFB8-4CA8-9A6A-C6E9D2361293</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/TGDwarf/Randers-Flyveklub-iOS-App.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>352A3A9B-CFB8-4CA8-9A6A-C6E9D2361293</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>352A3A9B-CFB8-4CA8-9A6A-C6E9D2361293</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Randers-Flyveklub-iOS-App</string>
+		</dict>
+	</array>
+</dict>
+</plist>
