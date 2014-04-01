@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="First View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Zhg-ve-WU7">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Map View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Zhg-ve-WU7">
                                 <rect key="frame" x="20" y="158" width="280" height="42"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
@@ -46,12 +46,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qh2-T1-AhA" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-145" y="-1142"/>
+            <point key="canvasLocation" x="317" y="-1148"/>
         </scene>
-        <!--View Controller - Item-->
+        <!--Fifth View Controller - Fifth-->
         <scene sceneID="9WU-49-hsc">
             <objects>
-                <viewController id="rVt-u9-Tfj" sceneMemberID="viewController">
+                <viewController title="Fifth" id="rVt-u9-Tfj" customClass="FifthViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="p11-xi-7AV"/>
                         <viewControllerLayoutGuide type="bottom" id="wcA-Kr-sO3"/>
@@ -62,16 +62,15 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="ENj-Ih-QdA"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v4W-ai-YPp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-137" y="735"/>
+            <point key="canvasLocation" x="291" y="221"/>
         </scene>
-        <!--View Controller - Item-->
+        <!--Fourth View Controller - Fourth-->
         <scene sceneID="XvZ-9A-QzI">
             <objects>
-                <viewController id="zMo-Ls-2mb" sceneMemberID="viewController">
+                <viewController title="Fourth" id="zMo-Ls-2mb" customClass="FourthViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SxR-WI-Xfz"/>
                         <viewControllerLayoutGuide type="bottom" id="C8B-Gd-m3e"/>
@@ -82,16 +81,15 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="Atl-Gb-xFb"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AdX-ZK-ibU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="623" y="351"/>
+            <point key="canvasLocation" x="-125" y="227"/>
         </scene>
-        <!--View Controller - Item-->
+        <!--Third View Controller - Third-->
         <scene sceneID="S3V-BV-ong">
             <objects>
-                <viewController id="DEc-cx-R9A" sceneMemberID="viewController">
+                <viewController title="Third" id="DEc-cx-R9A" customClass="ThirdViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="sS0-LC-TL5"/>
                         <viewControllerLayoutGuide type="bottom" id="YH5-FD-8ch"/>
@@ -99,13 +97,22 @@
                     <view key="view" contentMode="scaleToFill" id="2FH-YL-0bN">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Third View" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T7a-qA-zzg">
+                                <rect key="frame" x="91" y="109" width="80" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="XfU-nO-bUp"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8BH-yD-Kgc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="917" y="-429"/>
+            <point key="canvasLocation" x="317" y="-455"/>
         </scene>
         <!--Second View Controller - Second-->
         <scene sceneID="ot8-2e-RuS">
@@ -131,7 +138,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3qq-4t-Ow8" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="565" y="-1127"/>
+            <point key="canvasLocation" x="-131" y="-469"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Vex-rW-GRa">
