@@ -478,6 +478,7 @@
 				B79B18E418EAD3EA00895821 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B79B18E518EAD3EA00895821 /* Build configuration list for PBXNativeTarget "Randers Flyveklub iOS AppTests" */ = {
 			isa = XCConfigurationList;
@@ -486,6 +487,7 @@
 				B79B18E718EAD3EA00895821 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
