@@ -60,6 +60,20 @@
     return cell;
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"detailsegue"])
+         { /*
+            NSIndexPath *indexpath = nil;
+            NSString *sbutitlearray =nil;
+            NSString *tittlearray =nil;
+            
+             indexpath = [mytablecview indexPathForSelectedRow];
+             titlestring = [tittlearray objectAtIndex:indexpath.row];
+             subtitlestirng = [sbutitlearray  ]*/
+         }
+}
+
+
 /*
 #pragma mark - Navigation
 

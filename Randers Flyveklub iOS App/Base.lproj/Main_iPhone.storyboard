@@ -123,7 +123,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="5Du-i8-IjE" kind="push" id="zme-5G-J3y"/>
+                                            <segue destination="5Du-i8-IjE" kind="push" identifier="detailsegue" id="zme-5G-J3y"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
