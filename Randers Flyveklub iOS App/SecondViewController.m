@@ -7,6 +7,8 @@
 //
 
 #import "SecondViewController.h"
+#import "ContaktViewController.h"
+
 
 @interface SecondViewController ()
 @property (strong, nonatomic) IBOutletCollection(UITableView) NSArray *contakt;
@@ -52,7 +54,11 @@ tableData = [[NSArray alloc] initWithObjects:@"TG Drowf",@"Satans NIsser",@"Jesp
     
     cell.textLabel.text = [tableData objectAtIndex:indexPath.row];
     return cell;
-}
+    
 
+}
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id){
+
+}
 
 @end
