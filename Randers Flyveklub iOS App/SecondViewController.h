@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SecondViewController : UIViewController
+@interface SecondViewController : UIViewController <UITableViewDataSource>
+{
+    NSArray *tableData;
+}
+@property (nonatomic, retain) NSArray *tableData;
 
 @end
