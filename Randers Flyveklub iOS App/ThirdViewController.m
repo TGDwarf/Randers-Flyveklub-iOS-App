@@ -25,7 +25,7 @@
 
 - (void)viewDidLoad
 {
-    NSURL *url = [NSURL URLWithString:@"http://dmi.dk/vejr"];
+    NSURL *url = [NSURL URLWithString:@"http://dmi.dk/fileadmin/dmiappv2t3/"];
     NSURLRequest *requesturl = [NSURLRequest requestWithURL:url];
     [WebView loadRequest:requesturl];
     [super viewDidLoad];
@@ -54,7 +54,7 @@
     NSInteger selId;
     selId = [segControl selectedSegmentIndex];
     NSArray *urls;
-    urls = [NSArray arrayWithObjects: @"http://dmi.dk/vejr/", @"http://airfields.dk/", @"http://randersflyveklub.dk/pi-cam/",nil];
+    urls = [NSArray arrayWithObjects: @"http://dmi.dk/fileadmin/dmiappv2t3/", @"http://airfields.dk/", @"http://randersflyveklub.dk/pi-cam/",nil];
     NSURL *url = [NSURL URLWithString:urls[selId]];
     NSURLRequest *requesturl = [NSURLRequest requestWithURL:url];
     [WebView loadRequest:requesturl];
