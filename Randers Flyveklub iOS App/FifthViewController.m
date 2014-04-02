@@ -1,19 +1,19 @@
 //
-//  ThirdViewController.m
+//  FifthViewController.m
 //  Randers Flyveklub iOS App
 //
 //  Created by Jesper on 4/2/14.
 //  Copyright (c) 2014 TGD Inc. All rights reserved.
 //
 
-#import "ThirdViewController.h"
+#import "FifthViewController.h"
 
-@interface ThirdViewController ()
+@interface FifthViewController ()
 
 @end
 
-@implementation ThirdViewController
-@synthesize WebView;
+@implementation FifthViewController
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -25,9 +25,6 @@
 
 - (void)viewDidLoad
 {
-    NSURL *url = [NSURL URLWithString:@"http://dmi.dk/vejr"];
-    NSURLRequest *requesturl = [NSURLRequest requestWithURL:url];
-    [WebView loadRequest:requesturl];
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
@@ -49,17 +46,4 @@
 }
 */
 
-- (IBAction)bookmarks:(id)sender {
-    UISegmentedControl *segControl = (UISegmentedControl *)sender;
-    NSInteger selId;
-    selId = [segControl selectedSegmentIndex];
-    NSArray *urls;
-    urls = [NSArray arrayWithObjects: @"http://dmi.dk/vejr/", @"http://airfields.dk/", @"http://randersflyveklub.dk/pi-cam/",nil];
-    NSURL *url = [NSURL URLWithString:urls[selId]];
-    NSURLRequest *requesturl = [NSURLRequest requestWithURL:url];
-    [WebView loadRequest:requesturl];
-    //http://www.dmi.dk/vejr/
-    //http://www.airfields.dk/
-    //http://www.randersflyveklub.dk/pi-cam/
-}
 @end
