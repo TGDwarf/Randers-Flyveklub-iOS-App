@@ -1,18 +1,18 @@
 //
-//  FourthViewController.m
+//  FifthViewController.m
 //  Randers Flyveklub iOS App
 //
 //  Created by Jesper on 4/2/14.
 //  Copyright (c) 2014 TGD Inc. All rights reserved.
 //
 
-#import "FourthViewController.h"
+#import "AircraftViewController.h"
 
-@interface FourthViewController ()
+@interface AircraftViewController ()
 
 @end
 
-@implementation FourthViewController
+@implementation AircraftViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

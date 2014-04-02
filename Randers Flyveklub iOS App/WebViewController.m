@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 TGD Inc. All rights reserved.
 //
 
-#import "ThirdViewController.h"
+#import "WebViewController.h"
 
-@interface ThirdViewController ()
+@interface WebViewController ()
 
 @end
 
-@implementation ThirdViewController
+@implementation WebViewController
 @synthesize WebView;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

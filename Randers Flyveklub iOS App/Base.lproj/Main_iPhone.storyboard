@@ -25,16 +25,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="First" image="first" id="u1e-5L-l1D"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="first" id="u1e-5L-l1D"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qh2-T1-AhA" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="317" y="-1148"/>
         </scene>
-        <!--Fifth View Controller - Fifth-->
+        <!--Aircraft View Controller - Fifth-->
         <scene sceneID="9WU-49-hsc">
             <objects>
-                <viewController title="Fifth" id="rVt-u9-Tfj" customClass="FifthViewController" sceneMemberID="viewController">
+                <viewController title="Fifth" id="rVt-u9-Tfj" customClass="AircraftViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="p11-xi-7AV"/>
                         <viewControllerLayoutGuide type="bottom" id="wcA-Kr-sO3"/>
@@ -59,16 +59,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="ENj-Ih-QdA"/>
+                    <tabBarItem key="tabBarItem" title="Aircraft" image="first" id="ENj-Ih-QdA"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v4W-ai-YPp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="291" y="221"/>
         </scene>
-        <!--Fourth View Controller - Fourth-->
+        <!--Weather View Controller - Fourth-->
         <scene sceneID="XvZ-9A-QzI">
             <objects>
-                <viewController title="Fourth" id="zMo-Ls-2mb" customClass="FourthViewController" sceneMemberID="viewController">
+                <viewController title="Fourth" id="zMo-Ls-2mb" customClass="WeatherViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SxR-WI-Xfz"/>
                         <viewControllerLayoutGuide type="bottom" id="C8B-Gd-m3e"/>
@@ -92,16 +92,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="Atl-Gb-xFb"/>
+                    <tabBarItem key="tabBarItem" title="Weather" image="second" id="Atl-Gb-xFb"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AdX-ZK-ibU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-125" y="227"/>
         </scene>
-        <!--Third View Controller - Third-->
+        <!--Web View Controller - Third-->
         <scene sceneID="S3V-BV-ong">
             <objects>
-                <viewController title="Third" id="DEc-cx-R9A" customClass="ThirdViewController" sceneMemberID="viewController">
+                <viewController title="Third" id="DEc-cx-R9A" customClass="WebViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="sS0-LC-TL5"/>
                         <viewControllerLayoutGuide type="bottom" id="YH5-FD-8ch"/>
@@ -137,7 +137,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="XfU-nO-bUp"/>
+                    <tabBarItem key="tabBarItem" title="Web" image="first" id="XfU-nO-bUp"/>
                     <connections>
                         <outlet property="WebView" destination="bhL-Q0-4iv" id="Jt9-uM-5Sd"/>
                     </connections>
@@ -190,7 +190,7 @@
                             <constraint firstAttribute="trailing" secondItem="29h-N2-YGT" secondAttribute="trailing" constant="20" symbolic="YES" id="FIx-Zl-RBr"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="contakt" id="aqP-dw-G7M"/>
+                    <tabBarItem key="tabBarItem" title="Contact" id="aqP-dw-G7M"/>
                     <connections>
                         <outlet property="mycell" destination="yzq-cL-sGl" id="cqE-ce-PJo"/>
                         <outletCollection property="contakt" destination="yzq-cL-sGl" id="A4p-KB-U1x"/>
@@ -200,10 +200,10 @@
             </objects>
             <point key="canvasLocation" x="-125" y="-1933"/>
         </scene>
-        <!--Contakt View Controller-->
+        <!--Contact View Controller-->
         <scene sceneID="O3V-ce-8Or">
             <objects>
-                <viewController id="ylE-ms-aM4" customClass="ContaktViewController" sceneMemberID="viewController">
+                <viewController id="ylE-ms-aM4" customClass="ContactViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8xf-Sp-1ZA"/>
                         <viewControllerLayoutGuide type="bottom" id="oc3-Ry-goN"/>
@@ -276,6 +276,7 @@
     </scenes>
     <resources>
         <image name="first" width="30" height="30"/>
+        <image name="second" width="30" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

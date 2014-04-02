@@ -8,12 +8,12 @@
 
 #import "ContactViewController.h"
 
-@interface ContaktViewController ()
+@interface ContactViewController ()
 @property (strong, nonatomic) IBOutlet UIView *navbar;
 
 @end
 
-@implementation ContaktViewController
+@implementation ContactViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
