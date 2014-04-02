@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		18F9610118EBE05F00DC4A13 /* ContaktViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F9610018EBE05F00DC4A13 /* ContaktViewController.m */; };
+		24AF0E8218EC0F6A00232C71 /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AF0E8118EC0F6A00232C71 /* ThirdViewController.m */; };
 		B79B18AE18EAD3EA00895821 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B79B18AD18EAD3EA00895821 /* Foundation.framework */; };
 		B79B18B018EAD3EA00895821 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B79B18AF18EAD3EA00895821 /* CoreGraphics.framework */; };
 		B79B18B218EAD3EA00895821 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B79B18B118EAD3EA00895821 /* UIKit.framework */; };
@@ -39,6 +40,8 @@
 /* Begin PBXFileReference section */
 		18F960FF18EBE05F00DC4A13 /* ContaktViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContaktViewController.h; sourceTree = "<group>"; };
 		18F9610018EBE05F00DC4A13 /* ContaktViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContaktViewController.m; sourceTree = "<group>"; };
+		24AF0E8018EC0F6A00232C71 /* ThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdViewController.h; sourceTree = "<group>"; };
+		24AF0E8118EC0F6A00232C71 /* ThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdViewController.m; sourceTree = "<group>"; };
 		B79B18AA18EAD3EA00895821 /* Randers Flyveklub iOS App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Randers Flyveklub iOS App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B79B18AD18EAD3EA00895821 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B79B18AF18EAD3EA00895821 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -123,6 +126,8 @@
 				B79B18BC18EAD3EA00895821 /* AppDelegate.h */,
 				B79B18BD18EAD3EA00895821 /* AppDelegate.m */,
 				B79B18BF18EAD3EA00895821 /* Main_iPhone.storyboard */,
+				24AF0E8018EC0F6A00232C71 /* ThirdViewController.h */,
+				24AF0E8118EC0F6A00232C71 /* ThirdViewController.m */,
 				18F960FF18EBE05F00DC4A13 /* ContaktViewController.h */,
 				18F9610018EBE05F00DC4A13 /* ContaktViewController.m */,
 				B79B18C218EAD3EA00895821 /* Main_iPad.storyboard */,
@@ -265,6 +270,7 @@
 			files = (
 				B79B18CA18EAD3EA00895821 /* SecondViewController.m in Sources */,
 				18F9610118EBE05F00DC4A13 /* ContaktViewController.m in Sources */,
+				24AF0E8218EC0F6A00232C71 /* ThirdViewController.m in Sources */,
 				B79B18BE18EAD3EA00895821 /* AppDelegate.m in Sources */,
 				B79B18C718EAD3EA00895821 /* FirstViewController.m in Sources */,
 				B79B18BA18EAD3EA00895821 /* main.m in Sources */,
