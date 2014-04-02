@@ -6,9 +6,10 @@
 //  Copyright (c) 2014 TGD Inc. All rights reserved.
 //
 
-#import "ContaktViewController.h"
+#import "ContactViewController.h"
 
 @interface ContaktViewController ()
+@property (strong, nonatomic) IBOutlet UIView *navbar;
 
 @end
 

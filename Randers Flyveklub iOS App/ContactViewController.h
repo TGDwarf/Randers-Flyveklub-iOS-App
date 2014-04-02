@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface ContaktViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UILabel *navn;
+@property (weak, nonatomic) IBOutlet UITextField *nummer;
 
 @end
