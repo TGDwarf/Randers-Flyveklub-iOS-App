@@ -71,8 +71,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B70F0E0818EBFE9300C0D404 /* SystemConfiguration.framework in Frameworks */,
+				B70F0E0618EBFE8900C0D404 /* QuartzCore.framework in Frameworks */,
+				B70F0E0418EBFE8000C0D404 /* OpenGLES.framework in Frameworks */,
+				B70F0E0218EBFE7200C0D404 /* libz.dylib in Frameworks */,
+				B70F0E0018EBFE6500C0D404 /* libicucore.dylib in Frameworks */,
+				B70F0DFE18EBFE4500C0D404 /* libc++.dylib in Frameworks */,
+				B70F0DFC18EBFE2700C0D404 /* ImageIO.framework in Frameworks */,
+				B70F0DFA18EBFE1400C0D404 /* GLKit.framework in Frameworks */,
+				B70F0DF818EBFE0100C0D404 /* CoreText.framework in Frameworks */,
+				B70F0DF618EBFDF600C0D404 /* CoreLocation.framework in Frameworks */,
+				B70F0DF418EBFDEE00C0D404 /* CoreData.framework in Frameworks */,
+				B70F0DF218EBFDE500C0D404 /* AVFoundation.framework in Frameworks */,
 				B79B18B018EAD3EA00895821 /* CoreGraphics.framework in Frameworks */,
 				B79B18B218EAD3EA00895821 /* UIKit.framework in Frameworks */,
+				B70F0DEE18EBFB0300C0D404 /* GoogleMaps.framework in Frameworks */,
 				B79B18AE18EAD3EA00895821 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -112,6 +125,20 @@
 		B79B18AC18EAD3EA00895821 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B70F0E0718EBFE9300C0D404 /* SystemConfiguration.framework */,
+				B70F0E0518EBFE8900C0D404 /* QuartzCore.framework */,
+				B70F0E0318EBFE8000C0D404 /* OpenGLES.framework */,
+				B70F0E0118EBFE7200C0D404 /* libz.dylib */,
+				B70F0DFF18EBFE6500C0D404 /* libicucore.dylib */,
+				B70F0DFD18EBFE4500C0D404 /* libc++.dylib */,
+				B70F0DFB18EBFE2700C0D404 /* ImageIO.framework */,
+				B70F0DF918EBFE1400C0D404 /* GLKit.framework */,
+				B70F0DF718EBFE0100C0D404 /* CoreText.framework */,
+				B70F0DF518EBFDF600C0D404 /* CoreLocation.framework */,
+				B70F0DF318EBFDEE00C0D404 /* CoreData.framework */,
+				B70F0DF118EBFDE500C0D404 /* AVFoundation.framework */,
+				B70F0DEF18EBFCC100C0D404 /* GoogleMaps.bundle */,
+				B70F0DED18EBFB0300C0D404 /* GoogleMaps.framework */,
 				B79B18AD18EAD3EA00895821 /* Foundation.framework */,
 				B79B18AF18EAD3EA00895821 /* CoreGraphics.framework */,
 				B79B18B118EAD3EA00895821 /* UIKit.framework */,
@@ -250,6 +277,7 @@
 				B79B18CC18EAD3EA00895821 /* Images.xcassets in Resources */,
 				B79B18C118EAD3EA00895821 /* Main_iPhone.storyboard in Resources */,
 				B79B18B818EAD3EA00895821 /* InfoPlist.strings in Resources */,
+				B70F0DF018EBFCC200C0D404 /* GoogleMaps.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,10 +437,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/TGDwarf/Downloads/GoogleMaps-iOS-1.7.2",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Randers Flyveklub iOS App/Randers Flyveklub iOS App-Prefix.pch";
 				INFOPLIST_FILE = "Randers Flyveklub iOS App/Randers Flyveklub iOS App-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -423,10 +458,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/TGDwarf/Downloads/GoogleMaps-iOS-1.7.2",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Randers Flyveklub iOS App/Randers Flyveklub iOS App-Prefix.pch";
 				INFOPLIST_FILE = "Randers Flyveklub iOS App/Randers Flyveklub iOS App-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
