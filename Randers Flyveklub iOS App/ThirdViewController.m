@@ -47,5 +47,16 @@
 */
 
 - (IBAction)bookmarks:(id)sender {
+    UISegmentedControl *segControl = (UISegmentedControl *)sender;
+    NSInteger selId;
+    selId = [segControl selectedSegmentIndex];
+    NSArray *urls;
+    urls = [NSArray arrayWithObjects: @"http://dmi.dk/vejr/", @"http://airfields.dk/", @"http://randersflyveklub.dk/pi-cam/",nil];
+    NSURL *url = [NSURL URLWithString:urls[selId]];
+    NSURLRequest *requesturl = [NSURLRequest requestWithURL:url];
+    [WebView loadRequest:requesturl];
+    //http://www.dmi.dk/vejr/
+    //http://www.airfields.dk/
+    //http://www.randersflyveklub.dk/pi-cam/
 }
 @end
