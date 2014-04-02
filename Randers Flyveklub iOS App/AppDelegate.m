@@ -8,11 +8,13 @@
 
 #import "AppDelegate.h"
 
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    [GMSServices provideAPIKey:@"AIzaSyDwVCXWDt5Gcy1j_oMt63i_xLAkz_0tkkk"];
     return YES;
 }
 							
