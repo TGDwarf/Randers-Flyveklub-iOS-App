@@ -22,6 +22,7 @@
 		B70F0E0418EBFE8000C0D404 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B70F0E0318EBFE8000C0D404 /* OpenGLES.framework */; };
 		B70F0E0618EBFE8900C0D404 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B70F0E0518EBFE8900C0D404 /* QuartzCore.framework */; };
 		B70F0E0818EBFE9300C0D404 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B70F0E0718EBFE9300C0D404 /* SystemConfiguration.framework */; };
+		24AF0E8218EC0F6A00232C71 /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AF0E8118EC0F6A00232C71 /* ThirdViewController.m */; };
 		B79B18AE18EAD3EA00895821 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B79B18AD18EAD3EA00895821 /* Foundation.framework */; };
 		B79B18B018EAD3EA00895821 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B79B18AF18EAD3EA00895821 /* CoreGraphics.framework */; };
 		B79B18B218EAD3EA00895821 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B79B18B118EAD3EA00895821 /* UIKit.framework */; };
@@ -53,6 +54,20 @@
 /* Begin PBXFileReference section */
 		18F960FF18EBE05F00DC4A13 /* ContaktViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContaktViewController.h; sourceTree = "<group>"; };
 		18F9610018EBE05F00DC4A13 /* ContaktViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContaktViewController.m; sourceTree = "<group>"; };
+		24AF0E8018EC0F6A00232C71 /* ThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdViewController.h; sourceTree = "<group>"; };
+		24AF0E8118EC0F6A00232C71 /* ThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdViewController.m; sourceTree = "<group>"; };
+		B79B18AA18EAD3EA00895821 /* Randers Flyveklub iOS App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Randers Flyveklub iOS App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B79B18AD18EAD3EA00895821 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		B79B18AF18EAD3EA00895821 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		B79B18B118EAD3EA00895821 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		B79B18B518EAD3EA00895821 /* Randers Flyveklub iOS App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Randers Flyveklub iOS App-Info.plist"; sourceTree = "<group>"; };
+		B79B18B718EAD3EA00895821 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B79B18B918EAD3EA00895821 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B79B18BB18EAD3EA00895821 /* Randers Flyveklub iOS App-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Randers Flyveklub iOS App-Prefix.pch"; sourceTree = "<group>"; };
+		B79B18BC18EAD3EA00895821 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		B79B18BD18EAD3EA00895821 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		B79B18C018EAD3EA00895821 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		B79B18C318EAD3EA00895821 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		B70F0DED18EBFB0300C0D404 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
 		B70F0DEF18EBFCC100C0D404 /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
 		B70F0DF118EBFDE500C0D404 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -67,20 +82,8 @@
 		B70F0E0318EBFE8000C0D404 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		B70F0E0518EBFE8900C0D404 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		B70F0E0718EBFE9300C0D404 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		B79B18AA18EAD3EA00895821 /* Randers Flyveklub iOS App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Randers Flyveklub iOS App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		B79B18AD18EAD3EA00895821 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		B79B18AF18EAD3EA00895821 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		B79B18B118EAD3EA00895821 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		B79B18B518EAD3EA00895821 /* Randers Flyveklub iOS App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Randers Flyveklub iOS App-Info.plist"; sourceTree = "<group>"; };
-		B79B18B718EAD3EA00895821 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		B79B18B918EAD3EA00895821 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		B79B18BB18EAD3EA00895821 /* Randers Flyveklub iOS App-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Randers Flyveklub iOS App-Prefix.pch"; sourceTree = "<group>"; };
-		B79B18BC18EAD3EA00895821 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		B79B18BD18EAD3EA00895821 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		B79B18C018EAD3EA00895821 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
-		B79B18C318EAD3EA00895821 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		B79B18C518EAD3EA00895821 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		B79B18C618EAD3EA00895821 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		24AF0E8018EC0F6A00232C71 /* ThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdViewController.h; sourceTree = "<group>"; };
+		24AF0E8118EC0F6A00232C71 /* ThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdViewController.m; sourceTree = "<group>"; };
 		B79B18C818EAD3EA00895821 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
 		B79B18C918EAD3EA00895821 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		B79B18CB18EAD3EA00895821 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -178,6 +181,8 @@
 				B79B18BC18EAD3EA00895821 /* AppDelegate.h */,
 				B79B18BD18EAD3EA00895821 /* AppDelegate.m */,
 				B79B18BF18EAD3EA00895821 /* Main_iPhone.storyboard */,
+				24AF0E8018EC0F6A00232C71 /* ThirdViewController.h */,
+				24AF0E8118EC0F6A00232C71 /* ThirdViewController.m */,
 				18F960FF18EBE05F00DC4A13 /* ContaktViewController.h */,
 				18F9610018EBE05F00DC4A13 /* ContaktViewController.m */,
 				B79B18C218EAD3EA00895821 /* Main_iPad.storyboard */,
@@ -321,6 +326,7 @@
 			files = (
 				B79B18CA18EAD3EA00895821 /* SecondViewController.m in Sources */,
 				18F9610118EBE05F00DC4A13 /* ContaktViewController.m in Sources */,
+				24AF0E8218EC0F6A00232C71 /* ThirdViewController.m in Sources */,
 				B79B18BE18EAD3EA00895821 /* AppDelegate.m in Sources */,
 				B79B18C718EAD3EA00895821 /* FirstViewController.m in Sources */,
 				B79B18BA18EAD3EA00895821 /* main.m in Sources */,

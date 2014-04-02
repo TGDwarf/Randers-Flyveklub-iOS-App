@@ -53,6 +53,7 @@ tableData = [[NSArray alloc] initWithObjects:@"TG Drowf",@"Satans NIsser",@"Jesp
     }
     
     cell.textLabel.text = [tableData objectAtIndex:indexPath.row];
+
     return cell;
     
 

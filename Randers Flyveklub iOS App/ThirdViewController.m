@@ -1,20 +1,19 @@
 //
-//  ContaktViewController.m
+//  ThirdViewController.m
 //  Randers Flyveklub iOS App
 //
-//  Created by Mads Torp on 4/2/14.
+//  Created by Jesper on 4/2/14.
 //  Copyright (c) 2014 TGD Inc. All rights reserved.
 //
 
-#import "ContaktViewController.h"
+#import "ThirdViewController.h"
 
-@interface ContaktViewController ()
-@property (strong, nonatomic) IBOutlet UIView *navbar;
+@interface ThirdViewController ()
 
 @end
 
-@implementation ContaktViewController
-
+@implementation ThirdViewController
+@synthesize WebView;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -47,4 +46,6 @@
 }
 */
 
+- (IBAction)bookmarks:(id)sender {
+}
 @end
