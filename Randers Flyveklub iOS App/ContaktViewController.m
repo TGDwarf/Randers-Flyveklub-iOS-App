@@ -9,6 +9,7 @@
 #import "ContaktViewController.h"
 
 @interface ContaktViewController ()
+@property (strong, nonatomic) IBOutlet UIView *navbar;
 
 @end
 
