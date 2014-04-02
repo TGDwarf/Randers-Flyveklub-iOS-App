@@ -24,6 +24,9 @@
 tableData = [[NSArray alloc] initWithObjects:@"TG Drowf",@"Satans NIsser",@"JesperB21",@"", nil];
 
 [super viewDidLoad];
+    self.mycell.delegate = self;
+    self.mycell.dataSource = self;
+    
 	// Do any additional setup after loading the view, typically from a nib.
 
 }
@@ -58,7 +61,13 @@ tableData = [[NSArray alloc] initWithObjects:@"TG Drowf",@"Satans NIsser",@"Jesp
     
 
 }
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-        }
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([[segue identifier] isEqualToString:@"contakt"]) {
+        NSIndexPath *indexpath = nil;
+        NSString   *tableDatastring = nil;
+        
+       
+    }
+}
+
 @end
