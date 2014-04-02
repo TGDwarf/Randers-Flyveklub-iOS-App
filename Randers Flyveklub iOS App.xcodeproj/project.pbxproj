@@ -185,6 +185,10 @@
 		B79B18B318EAD3EA00895821 /* Randers Flyveklub iOS App */ = {
 			isa = PBXGroup;
 			children = (
+				24AF0E8318EC2F5700232C71 /* FourthViewController.h */,
+				24AF0E8418EC2F5700232C71 /* FourthViewController.m */,
+				24AF0E8618EC2F8400232C71 /* FifthViewController.h */,
+				24AF0E8718EC2F8400232C71 /* FifthViewController.m */,
 				B79B18BC18EAD3EA00895821 /* AppDelegate.h */,
 				B79B18BD18EAD3EA00895821 /* AppDelegate.m */,
 				B79B18BF18EAD3EA00895821 /* Main_iPhone.storyboard */,
@@ -199,10 +203,6 @@
 				B79B18C918EAD3EA00895821 /* SecondViewController.m */,
 				B79B18CB18EAD3EA00895821 /* Images.xcassets */,
 				B79B18B418EAD3EA00895821 /* Supporting Files */,
-				24AF0E8318EC2F5700232C71 /* FourthViewController.h */,
-				24AF0E8418EC2F5700232C71 /* FourthViewController.m */,
-				24AF0E8618EC2F8400232C71 /* FifthViewController.h */,
-				24AF0E8718EC2F8400232C71 /* FifthViewController.m */,
 			);
 			path = "Randers Flyveklub iOS App";
 			sourceTree = "<group>";
