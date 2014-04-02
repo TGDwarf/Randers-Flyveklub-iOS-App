@@ -7,7 +7,7 @@
 //
 
 #import "SecondViewController.h"
-#import "ContaktViewController.h"
+#import "ContactViewController.h"
 
 
 @interface SecondViewController ()
@@ -58,5 +58,7 @@ tableData = [[NSArray alloc] initWithObjects:@"TG Drowf",@"Satans NIsser",@"Jesp
     
 
 }
-
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+        }
 @end
