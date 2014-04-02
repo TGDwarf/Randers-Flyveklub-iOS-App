@@ -57,8 +57,5 @@ tableData = [[NSArray alloc] initWithObjects:@"TG Drowf",@"Satans NIsser",@"Jesp
     
 
 }
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id){
-
-}
 
 @end
