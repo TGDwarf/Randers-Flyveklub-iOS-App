@@ -7,11 +7,13 @@
 //
 
 #import "ContaktsDataViewController.h"
-
+#import "DetailViewController.h"
 @interface ContaktsDataViewController ()
 {
+    /*definere global arrays */
     NSMutableArray *tittlearray;
     NSMutableArray *sbutitlearray;
+    NSMutableArray *emailarray;
     
 }
 @end
@@ -34,9 +36,10 @@
     [super viewDidLoad];
     self.mytablecview.delegate = self;
     self.mytablecview.dataSource = self;
-    
-    tittlearray = [[NSMutableArray alloc]initWithObjects:@"hej",@"hej2",@"hej3", nil];
-    sbutitlearray =[[NSMutableArray alloc]initWithObjects:@"admin",@"torp",@"jesper", nil];
+    /*Arrays der indholder vores contakt data*/
+    tittlearray = [[NSMutableArray alloc]initWithObjects:@"TGDrowf",@"Satans Nisser",@"JesperB21", nil];
+    sbutitlearray =[[NSMutableArray alloc]initWithObjects:@"Slave Pisker",@"developer",@"developer", nil];
+    emailarray = [[NSMutableArray alloc]initWithObjects:@"hulletijorden@mercantec.dk",@"maso@mercantec.dk",@"jesper@mercanteac.dk", nil];
     // Do any additional setup after loading the view.
 }
 
@@ -48,28 +51,39 @@
 
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    /*row contakt der forteller app'en antel af forvented indhold i menu'en*/
     return [tittlearray count];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    /*contakt select menu */
     static  NSString *cellidentifier = @"Cell";
     UITableViewCell *cell   =   [tableView dequeueReusableCellWithIdentifier:cellidentifier forIndexPath:indexPath];
     cell.textLabel.text = [tittlearray objectAtIndex:indexPath.row];
-    
+    cell.detailTextLabel.text = [sbutitlearray objectAtIndex:indexPath.row];
+
     return cell;
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"detailsegue"])
-         { /*
+         {
+             /*definere strings til brug*/
             NSIndexPath *indexpath = nil;
-            NSString *sbutitlearray =nil;
-            NSString *tittlearray =nil;
-            
+            NSString *sbutitlestring = nil;
+            NSString *tittlestring = nil;
+             NSString *emailstirng = nil;
+             /*definere strings inholdet der skal pushes*/
              indexpath = [mytablecview indexPathForSelectedRow];
-             titlestring = [tittlearray objectAtIndex:indexpath.row];
-             subtitlestirng = [sbutitlearray  ]*/
+             tittlestring = [tittlearray objectAtIndex:indexpath.row];
+             sbutitlestring = [sbutitlearray objectAtIndex:indexpath.row];
+             emailstirng = [emailarray objectAtIndex:indexpath.row];
+             /*push data til detailviewcontrolleren*/
+             [[segue destinationViewController]setNavncontent:tittlestring];
+             [[segue destinationViewController]setRolecontent:sbutitlestring];
+             [[segue destinationViewController]setEmailcontent:emailstirng];
+         
          }
 }
 

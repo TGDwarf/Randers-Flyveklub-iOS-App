@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1816A0D618ED3D0F0073FB5D /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1816A0D518ED3D0F0073FB5D /* DetailViewController.m */; };
 		182AC6EF18EC83D90055BB08 /* ContaktsDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 182AC6EE18EC83D90055BB08 /* ContaktsDataViewController.m */; };
 		24AF0E8218EC0F6A00232C71 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AF0E8118EC0F6A00232C71 /* WebViewController.m */; };
 		24AF0E8518EC2F5700232C71 /* WeatherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AF0E8418EC2F5700232C71 /* WeatherViewController.m */; };
@@ -54,6 +55,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1816A0D418ED3D0F0073FB5D /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		1816A0D518ED3D0F0073FB5D /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		182AC6ED18EC83D90055BB08 /* ContaktsDataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContaktsDataViewController.h; sourceTree = "<group>"; };
 		182AC6EE18EC83D90055BB08 /* ContaktsDataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContaktsDataViewController.m; sourceTree = "<group>"; };
 		24AF0E8018EC0F6A00232C71 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
@@ -257,6 +260,8 @@
 		B7E56C3518EC3EC20003C942 /* Contact */ = {
 			isa = PBXGroup;
 			children = (
+				1816A0D418ED3D0F0073FB5D /* DetailViewController.h */,
+				1816A0D518ED3D0F0073FB5D /* DetailViewController.m */,
 				182AC6ED18EC83D90055BB08 /* ContaktsDataViewController.h */,
 				182AC6EE18EC83D90055BB08 /* ContaktsDataViewController.m */,
 			);
@@ -380,6 +385,7 @@
 			files = (
 				24AF0E8818EC2F8400232C71 /* AircraftViewController.m in Sources */,
 				24AF0E8518EC2F5700232C71 /* WeatherViewController.m in Sources */,
+				1816A0D618ED3D0F0073FB5D /* DetailViewController.m in Sources */,
 				24AF0E8218EC0F6A00232C71 /* WebViewController.m in Sources */,
 				B79B18BE18EAD3EA00895821 /* AppDelegate.m in Sources */,
 				182AC6EF18EC83D90055BB08 /* ContaktsDataViewController.m in Sources */,
