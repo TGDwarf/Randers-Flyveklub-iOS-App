@@ -34,7 +34,7 @@ NSData *receivedData;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSTimer *t = [NSTimer scheduledTimerWithTimeInterval:15.0 target:self
+    [NSTimer scheduledTimerWithTimeInterval:15.0 target:self
                                                 selector:@selector(loadURLLink:) userInfo:nil repeats:YES];
     NSURLRequest *request =[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://randersflyveklub.dk/vejr/clientraw.txt"] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:60.0];
     NSURLConnection *connection =[[NSURLConnection alloc] initWithRequest:request delegate:self];
@@ -77,7 +77,6 @@ NSData *receivedData;
     
     double windretning = [a[3] doubleValue];
     double windspeed = [a[1] doubleValue];
-    //windspeed = 30;
     double baneretning1 = 250;
     double baneretning2 = 70;
     double theta1 = windretning - baneretning1;
