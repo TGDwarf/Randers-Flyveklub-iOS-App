@@ -40,6 +40,7 @@ NSData *receivedData;
 }
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
+    receivedData = NULL;
 }
 -(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
@@ -51,6 +52,8 @@ NSData *receivedData;
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
     NSString *s = [[NSString alloc] initWithData:receivedData encoding:NSUTF8StringEncoding];
+    NSArray *a = [s componentsSeparatedByString:@" "];
+    NSLog(a[0]);
 }
 
 - (void)didReceiveMemoryWarning
