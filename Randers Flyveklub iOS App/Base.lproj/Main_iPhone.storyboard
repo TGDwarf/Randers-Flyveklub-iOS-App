@@ -244,18 +244,31 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T8I-4q-yxY">
-                                <rect key="frame" x="123" y="365" width="74" height="30"/>
+                                <rect key="frame" x="123" y="361" width="74" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Contakt">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="button:" destination="5Du-i8-IjE" eventType="touchUpInside" id="NlZ-g3-DUT"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rts-cM-fOs">
+                                <rect key="frame" x="123" y="361" width="74" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Contakt">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="button:" destination="5Du-i8-IjE" eventType="touchUpInside" id="Aqv-ZD-fUA"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="TrA-aP-JQZ"/>
                     <connections>
-                        <outlet property="contakt" destination="T8I-4q-yxY" id="B0n-hd-QPa"/>
+                        <outlet property="contakt" destination="rts-cM-fOs" id="sKb-AP-Cvm"/>
                         <outlet property="email" destination="bWI-4c-XyA" id="Ui8-fx-BmF"/>
                         <outlet property="navbar" destination="TrA-aP-JQZ" id="T8z-CP-ycZ"/>
                         <outlet property="navn" destination="yOk-iA-ifR" id="9Cv-tk-JW8"/>

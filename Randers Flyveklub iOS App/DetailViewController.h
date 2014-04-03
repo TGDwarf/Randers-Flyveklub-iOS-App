@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <MessageUI/MessageUI.h>
+#import <MessageUI/MFMessageComposeViewController.h>
 
-@interface DetailViewController : UIViewController
+@interface DetailViewController : UIViewController <MFMessageComposeViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UINavigationItem *navbar;
 @property (weak, nonatomic) IBOutlet UILabel *navn;
 @property (weak, nonatomic) IBOutlet UILabel *role;
@@ -17,6 +18,7 @@
 @property (strong, nonatomic) NSString *navncontent;
 @property (strong, nonatomic) NSString *rolecontent;
 @property (strong, nonatomic) NSString *emailcontent;
+- (IBAction)button:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *contakt;
 
 
