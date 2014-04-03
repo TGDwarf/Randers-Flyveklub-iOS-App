@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1816A0D618ED3D0F0073FB5D /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1816A0D518ED3D0F0073FB5D /* DetailViewController.m */; };
+		1816A0D818ED5D1C0073FB5D /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1816A0D718ED5D1C0073FB5D /* libsqlite3.dylib */; };
+		1816A0DA18ED66500073FB5D /* database.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 1816A0D918ED66500073FB5D /* database.sqlite */; };
 		182AC6EF18EC83D90055BB08 /* ContaktsDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 182AC6EE18EC83D90055BB08 /* ContaktsDataViewController.m */; };
 		24AF0E8218EC0F6A00232C71 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AF0E8118EC0F6A00232C71 /* WebViewController.m */; };
 		24AF0E8518EC2F5700232C71 /* WeatherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AF0E8418EC2F5700232C71 /* WeatherViewController.m */; };
@@ -57,6 +59,8 @@
 /* Begin PBXFileReference section */
 		1816A0D418ED3D0F0073FB5D /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		1816A0D518ED3D0F0073FB5D /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		1816A0D718ED5D1C0073FB5D /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		1816A0D918ED66500073FB5D /* database.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = database.sqlite; sourceTree = "<group>"; };
 		182AC6ED18EC83D90055BB08 /* ContaktsDataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContaktsDataViewController.h; sourceTree = "<group>"; };
 		182AC6EE18EC83D90055BB08 /* ContaktsDataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContaktsDataViewController.m; sourceTree = "<group>"; };
 		24AF0E8018EC0F6A00232C71 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
@@ -106,6 +110,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1816A0D818ED5D1C0073FB5D /* libsqlite3.dylib in Frameworks */,
 				B70F0E0818EBFE9300C0D404 /* SystemConfiguration.framework in Frameworks */,
 				B70F0E0618EBFE8900C0D404 /* QuartzCore.framework in Frameworks */,
 				B70F0E0418EBFE8000C0D404 /* OpenGLES.framework in Frameworks */,
@@ -160,6 +165,7 @@
 		B79B18AC18EAD3EA00895821 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1816A0D718ED5D1C0073FB5D /* libsqlite3.dylib */,
 				B70F0E0718EBFE9300C0D404 /* SystemConfiguration.framework */,
 				B70F0E0518EBFE8900C0D404 /* QuartzCore.framework */,
 				B70F0E0318EBFE8000C0D404 /* OpenGLES.framework */,
@@ -260,6 +266,7 @@
 		B7E56C3518EC3EC20003C942 /* Contact */ = {
 			isa = PBXGroup;
 			children = (
+				1816A0D918ED66500073FB5D /* database.sqlite */,
 				1816A0D418ED3D0F0073FB5D /* DetailViewController.h */,
 				1816A0D518ED3D0F0073FB5D /* DetailViewController.m */,
 				182AC6ED18EC83D90055BB08 /* ContaktsDataViewController.h */,
@@ -360,6 +367,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1816A0DA18ED66500073FB5D /* database.sqlite in Resources */,
 				B79B18C418EAD3EA00895821 /* Main_iPad.storyboard in Resources */,
 				B79B18CC18EAD3EA00895821 /* Images.xcassets in Resources */,
 				B79B18C118EAD3EA00895821 /* Main_iPhone.storyboard in Resources */,

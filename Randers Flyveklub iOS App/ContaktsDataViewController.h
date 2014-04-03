@@ -7,8 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import <sqlite3.h>
 @interface ContaktsDataViewController : UIViewController <UITableViewDataSource,UITableViewDelegate>
+{
+    sqlite3 *contakt;
+}
+
 @property (weak, nonatomic) IBOutlet UITableView *mytablecview;
 @property (weak, nonatomic) IBOutlet UITableView *mytableview;
 
