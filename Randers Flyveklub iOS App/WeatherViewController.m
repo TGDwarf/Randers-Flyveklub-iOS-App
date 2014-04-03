@@ -9,7 +9,9 @@
 #import "WeatherViewController.h"
 
 @interface WeatherViewController ()
-
+{
+//    NSMutableArray *data;
+}
 @end
 
 @implementation WeatherViewController
@@ -22,11 +24,33 @@
     }
     return self;
 }
+NSData *receivedData;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    //NSData *receivedData;
+    NSURLRequest *request =[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://randersflyveklub.dk/vejr/clientraw.txt"] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:60.0];
+    NSURLConnection *connection =[[NSURLConnection alloc] initWithRequest:request delegate:self];
+    if(connection)
+    {
+        receivedData = [NSMutableData data];
+    }
     // Do any additional setup after loading the view.
+}
+-(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
+{
+}
+-(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+{
+    receivedData = data;
+}
+-(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+{
+}
+-(void)connectionDidFinishLoading:(NSURLConnection *)connection
+{
+    NSString *s = [[NSString alloc] initWithData:receivedData encoding:NSUTF8StringEncoding];
 }
 
 - (void)didReceiveMemoryWarning
