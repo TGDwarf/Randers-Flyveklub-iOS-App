@@ -1,19 +1,18 @@
 //
-//  ContaktViewController.m
+//  FifthViewController.m
 //  Randers Flyveklub iOS App
 //
-//  Created by Mads Torp on 4/2/14.
+//  Created by Jesper on 4/2/14.
 //  Copyright (c) 2014 TGD Inc. All rights reserved.
 //
 
-#import "ContactViewController.h"
+#import "AircraftViewController.h"
 
-@interface ContaktViewController ()
-@property (strong, nonatomic) IBOutlet UIView *navbar;
+@interface AircraftViewController ()
 
 @end
 
-@implementation ContaktViewController
+@implementation AircraftViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

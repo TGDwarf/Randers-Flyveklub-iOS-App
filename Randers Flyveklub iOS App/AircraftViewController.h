@@ -1,5 +1,5 @@
 //
-//  FourthViewController.h
+//  FifthViewController.h
 //  Randers Flyveklub iOS App
 //
 //  Created by Jesper on 4/2/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FourthViewController : UIViewController
+@interface AircraftViewController : UIViewController
 
 @end

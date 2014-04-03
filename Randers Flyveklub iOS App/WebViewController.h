@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ThirdViewController : UIViewController
+@interface WebViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIWebView *WebView;
 - (IBAction)bookmarks:(id)sender;
 
