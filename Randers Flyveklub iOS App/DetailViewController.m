@@ -64,7 +64,7 @@
 
 - (IBAction)button:(id)sender {
     // Email Subject
-    NSString *emailTitle = @"Test Email";
+    NSString *emailTitle = [NSString stringWithFormat:@"%@ test mail", self.rolecontent ];
     // Email Content
     NSString *messageBody = @"iOS programming is so fun!";
     // To address

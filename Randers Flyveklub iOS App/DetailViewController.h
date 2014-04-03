@@ -10,7 +10,7 @@
 #import <MessageUI/MessageUI.h>
 #import <MessageUI/MFMessageComposeViewController.h>
 
-@interface DetailViewController : UIViewController <MFMessageComposeViewControllerDelegate>
+@interface DetailViewController : UIViewController <MFMailComposeViewControllerDelegate> 
 @property (weak, nonatomic) IBOutlet UINavigationItem *navbar;
 @property (weak, nonatomic) IBOutlet UILabel *navn;
 @property (weak, nonatomic) IBOutlet UILabel *role;
