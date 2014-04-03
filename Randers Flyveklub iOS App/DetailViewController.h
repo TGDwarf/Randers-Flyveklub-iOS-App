@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MessageUI.h>
 
 @interface DetailViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UINavigationItem *navbar;
@@ -16,5 +17,7 @@
 @property (strong, nonatomic) NSString *navncontent;
 @property (strong, nonatomic) NSString *rolecontent;
 @property (strong, nonatomic) NSString *emailcontent;
+@property (weak, nonatomic) IBOutlet UIButton *contakt;
+
 
 @end

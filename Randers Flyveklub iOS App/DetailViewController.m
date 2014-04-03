@@ -10,6 +10,7 @@
 
 @interface DetailViewController ()
 
+
 @end
 
 @implementation DetailViewController
@@ -20,6 +21,8 @@
 @synthesize title;
 @synthesize navn;
 @synthesize role;
+
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -45,6 +48,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+
 /*
 #pragma mark - Navigation
 
@@ -55,5 +60,9 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
+
+
 
 @end
