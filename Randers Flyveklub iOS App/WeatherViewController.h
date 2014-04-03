@@ -13,5 +13,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *dirLabel;
 @property (weak, nonatomic) IBOutlet UILabel *gustsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *pressureLabel;
+@property (weak, nonatomic) IBOutlet UILabel *bane7Headwind;
+@property (weak, nonatomic) IBOutlet UILabel *bane7Crosswind;
+@property (weak, nonatomic) IBOutlet UILabel *bane25Headwind;
+@property (weak, nonatomic) IBOutlet UILabel *bane25Crosswind;
 
 @end
