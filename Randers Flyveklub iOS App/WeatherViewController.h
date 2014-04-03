@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface WeatherViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UILabel *spdLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dirLabel;
+@property (weak, nonatomic) IBOutlet UILabel *gustsLabel;
+@property (weak, nonatomic) IBOutlet UILabel *pressureLabel;
 
 @end

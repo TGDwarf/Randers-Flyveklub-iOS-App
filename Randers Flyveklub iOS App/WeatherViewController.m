@@ -9,12 +9,13 @@
 #import "WeatherViewController.h"
 
 @interface WeatherViewController ()
-{
-//    NSMutableArray *data;
-}
 @end
 
 @implementation WeatherViewController
+@synthesize spdLabel;
+@synthesize dirLabel;
+@synthesize gustsLabel;
+@synthesize pressureLabel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -53,7 +54,11 @@ NSData *receivedData;
 {
     NSString *s = [[NSString alloc] initWithData:receivedData encoding:NSUTF8StringEncoding];
     NSArray *a = [s componentsSeparatedByString:@" "];
-    NSLog(a[0]);
+    //NSLog();
+    spdLabel.text = [NSString stringWithFormat:@"%@%@", a[1], @"Knots"];
+    dirLabel.text = [NSString stringWithFormat:@"%@%@", a[3], @"Compass"];
+    gustsLabel.text = [NSString stringWithFormat:@"%@%@", a[2], @"Knots"];
+    pressureLabel.text = [NSString stringWithFormat:@"%@%@",a[6], @"hPa"];
 }
 
 - (void)didReceiveMemoryWarning
