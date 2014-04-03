@@ -75,16 +75,17 @@ NSData *receivedData;
     pressureLabel.text = [NSString stringWithFormat:@"%@%@",a[6], @"hPa"];
     
     
-    NSInteger windretning = [a[3] integerValue];
-    NSInteger windspeed = [a[1] integerValue];
-    NSInteger baneretning1 = 250;
-    NSInteger baneretning2 = 70;
-    NSInteger theta1 = windretning - baneretning1;
-    NSInteger theta2 = windretning - baneretning2;
-    NSInteger langsbane1 = windspeed * cos(theta1);
-    NSInteger langsbane2 = windspeed * cos(theta2);
-    NSInteger tvaersbane1 = windspeed * sin(theta1);
-    NSInteger tvaersbane2 = windspeed * sin(theta2);
+    double windretning = [a[3] doubleValue];
+    double windspeed = [a[1] doubleValue];
+    //windspeed = 30;
+    double baneretning1 = 250;
+    double baneretning2 = 70;
+    double theta1 = windretning - baneretning1;
+    double theta2 = windretning - baneretning2;
+    double langsbane1 = windspeed * cos(theta1);
+    double langsbane2 = windspeed * cos(theta2);
+    double tvaersbane1 = windspeed * sin(theta1);
+    double tvaersbane2 = windspeed * sin(theta2);
     
     bane7Headwind.text = [@(langsbane1) stringValue];
     bane7Crosswind.text = [@(tvaersbane1) stringValue];
