@@ -11,10 +11,10 @@
 @interface ContaktsDataViewController ()
 {
     /*definere global arrays */
-    NSMutableArray *tittlearray;
-    NSMutableArray *sbutitlearray;
-    NSMutableArray *emailarray;
-    
+    NSArray *tittlearray;
+    NSArray *sbutitlearray;
+    NSArray *emailarray;
+  
 }
 @end
 
@@ -33,13 +33,24 @@
 
 - (void)viewDidLoad
 {
+    
+    
+    NSString *theURL = @"http://docs.google.com/spreadsheet/ccc?key=0AmByrnA8irO1dGpCVjFHbmlDUmlDNWtFMDJzcF9LR0E&output=csv";
+    NSString *theFile = [NSString stringWithContentsOfURL:[NSURL URLWithString:theURL] encoding:NSUTF8StringEncoding error:nil];
+    NSLog(@"%@",theFile);
+    NSArray *theCells = [theFile componentsSeparatedByString:@"\n"];
+    tittlearray = [theCells[0] componentsSeparatedByString:@","];
+    sbutitlearray = [theCells[2] componentsSeparatedByString:@","];
+    emailarray = [theCells[1] componentsSeparatedByString:@","];
+    NSLog(@"%lu",(unsigned long)[theCells count]);
+    
     [super viewDidLoad];
     self.mytablecview.delegate = self;
     self.mytablecview.dataSource = self;
     /*Arrays der indholder vores contakt data*/
-    tittlearray = [[NSMutableArray alloc]initWithObjects:@"TGDrowf",@"Satans Nisser",@"JesperB21", nil];
-    sbutitlearray =[[NSMutableArray alloc]initWithObjects:@"Slave Pisker",@"developer",@"developer", nil];
-    emailarray = [[NSMutableArray alloc]initWithObjects:@"hulletijorden@mercantec.dk",@"maso@mercantec.dk",@"jesper@mercanteac.dk", nil];
+    //tittlearray = [[NSMutableArray alloc]initWithObjects:@"TGDrowf",@"Satans Nisser",@"JesperB21", nil];
+    //sbutitlearray =[[NSMutableArray alloc]initWithObjects:@"Slave Pisker",@"developer",@"developer", nil];
+    //emailarray = [[NSMutableArray alloc]initWithObjects:@"hulletijorden@mercantec.dk",@"maso@mercantec.dk",@"jesper@mercanteac.dk", nil];
     // Do any additional setup after loading the view.
 }
 
