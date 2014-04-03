@@ -92,7 +92,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Weather" image="second" id="Atl-Gb-xFb"/>
+                    <tabBarItem key="tabBarItem" title="Weather" image="first" id="Atl-Gb-xFb"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AdX-ZK-ibU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -234,7 +234,7 @@
         <scene sceneID="QCh-Fe-gml">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SvM-Md-swg" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Gwt-2R-qGt"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="first" id="Gwt-2R-qGt"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hh1-s7-Qmb">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -252,7 +252,6 @@
     </scenes>
     <resources>
         <image name="first" width="30" height="30"/>
-        <image name="second" width="30" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
