@@ -92,7 +92,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Weather" image="second" id="Atl-Gb-xFb"/>
+                    <tabBarItem key="tabBarItem" title="Weather" image="first" id="Atl-Gb-xFb"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AdX-ZK-ibU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -295,7 +295,6 @@
     </scenes>
     <resources>
         <image name="first" width="30" height="30"/>
-        <image name="second" width="30" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
