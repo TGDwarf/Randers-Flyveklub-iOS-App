@@ -30,13 +30,14 @@
     return self;
 }
 NSData *receivedData;
+int lastResponseCounter = 15;// 15 instead of 0 to compensate for the 15 second timer + 15 second timeout
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [NSTimer scheduledTimerWithTimeInterval:15.0 target:self
                                                 selector:@selector(loadURLLink:) userInfo:nil repeats:YES];
-    NSURLRequest *request =[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://randersflyveklub.dk/vejr/clientraw.txt"] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:60.0];
+    NSURLRequest *request =[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://randersflyveklub.dk/vejr/clientraw.txt"] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:15.0];
     NSURLConnection *connection =[[NSURLConnection alloc] initWithRequest:request delegate:self];
     if(connection)
     {
@@ -45,7 +46,7 @@ NSData *receivedData;
 }
 -(void)loadURLLink:(NSTimer *)timer
 {
-    NSURLRequest *request =[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://randersflyveklub.dk/vejr/clientraw.txt"] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:60.0];
+    NSURLRequest *request =[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://randersflyveklub.dk/vejr/clientraw.txt"] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:15.0];
     NSURLConnection *connection =[[NSURLConnection alloc] initWithRequest:request delegate:self];
     if(connection)
     {
@@ -57,15 +58,21 @@ NSData *receivedData;
 {
     receivedData = NULL;
 }
--(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+-(void)connectsion:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
     receivedData = data;
 }
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
+    lastResponseCounter += 15;
+    //NSLog(@"%d",lastResponseCounter);
+    if(lastResponseCounter >= 120){
+        NSLog(@"well...you lost net mate");
+    }
 }
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
+    lastResponseCounter = 15;// 15 instead of 0 to compensate for the 15 second timer + 15 second timeout
     NSString *s = [[NSString alloc] initWithData:receivedData encoding:NSUTF8StringEncoding];
     NSArray *a = [s componentsSeparatedByString:@" "];
     //NSLog();
@@ -81,11 +88,14 @@ NSData *receivedData;
     double baneretning2 = 70;
     double theta1 = windretning - baneretning1;
     double theta2 = windretning - baneretning2;
+    double degreesToRadians = M_PI / 180;
+    theta1 *= degreesToRadians;
+    theta2 *= degreesToRadians;
+    
     double langsbane1 = windspeed * cos(theta1);
     double langsbane2 = windspeed * cos(theta2);
     double tvaersbane1 = windspeed * sin(theta1);
     double tvaersbane2 = windspeed * sin(theta2);
-    
     bane7Headwind.text = [@(langsbane1) stringValue];
     bane7Crosswind.text = [@(tvaersbane1) stringValue];
     bane25Headwind.text = [@(langsbane2) stringValue];
