@@ -541,7 +541,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/TGDwarf/Downloads/GoogleMaps-iOS-1.7.2",
+					"$(PROJECT_DIR)/GoogleMaps-iOS-1.7.2",
 					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -563,7 +563,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/TGDwarf/Downloads/GoogleMaps-iOS-1.7.2",
+					"$(PROJECT_DIR)/GoogleMaps-iOS-1.7.2",
 					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
