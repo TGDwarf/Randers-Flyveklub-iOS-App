@@ -269,7 +269,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="11z-TQ-zfE"/>
                     <connections>
-                        <outlet property="mytablecview" destination="8pg-3h-cZg" id="QgP-7D-XZM"/>
                         <outlet property="mytableview" destination="8pg-3h-cZg" id="bQr-Dl-i9d"/>
                     </connections>
                 </viewController>

@@ -13,7 +13,7 @@
     sqlite3 *contakt;
 }
 
-@property (weak, nonatomic) IBOutlet UITableView *mytablecview;
+
 @property (weak, nonatomic) IBOutlet UITableView *mytableview;
 
 @end

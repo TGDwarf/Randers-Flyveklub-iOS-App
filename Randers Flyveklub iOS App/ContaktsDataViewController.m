@@ -8,6 +8,7 @@
 
 #import "ContaktsDataViewController.h"
 #import "DetailViewController.h"
+#import "sqlite3.h"
 @interface ContaktsDataViewController ()
 {
     /*definere global arrays */
@@ -19,8 +20,15 @@
 @end
 
 @implementation ContaktsDataViewController
+{
+    NSString *db;
+    sqlite3 *dbh;
+    sqlite3_stmt    *stmt_query;
+    NSMutableArray  *data;
 
-@synthesize mytablecview;
+}
+
+@synthesize mytableview;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -33,20 +41,26 @@
 
 - (void)viewDidLoad
 {
+ 
+    // Copy SQlite database from App-bundle to Sandbox
+
     
     
     NSString *theURL = @"http://docs.google.com/spreadsheet/ccc?key=0AmByrnA8irO1dGpCVjFHbmlDUmlDNWtFMDJzcF9LR0E&output=csv";
     NSString *theFile = [NSString stringWithContentsOfURL:[NSURL URLWithString:theURL] encoding:NSUTF8StringEncoding error:nil];
     NSLog(@"%@",theFile);
     NSArray *theCells = [theFile componentsSeparatedByString:@"\n"];
-    tittlearray = [theCells[0] componentsSeparatedByString:@","];
-    sbutitlearray = [theCells[2] componentsSeparatedByString:@","];
-    emailarray = [theCells[1] componentsSeparatedByString:@","];
     NSLog(@"%lu",(unsigned long)[theCells count]);
     
     [super viewDidLoad];
-    self.mytablecview.delegate = self;
-    self.mytablecview.dataSource = self;
+    self.mytableview.delegate = self;
+    self.mytableview.dataSource = self;
+    /*data pull til Detailviewcontroller*/
+    tittlearray = [theCells[0] componentsSeparatedByString:@","];
+    sbutitlearray = [theCells[2] componentsSeparatedByString:@","];
+    emailarray = [theCells[1] componentsSeparatedByString:@","];
+    
+    
     /*Arrays der indholder vores contakt data*/
     //tittlearray = [[NSMutableArray alloc]initWithObjects:@"TGDrowf",@"Satans Nisser",@"JesperB21", nil];
     //sbutitlearray =[[NSMutableArray alloc]initWithObjects:@"Slave Pisker",@"developer",@"developer", nil];
@@ -86,7 +100,7 @@
             NSString *tittlestring = nil;
              NSString *emailstirng = nil;
              /*definere strings inholdet der skal pushes*/
-             indexpath = [mytablecview indexPathForSelectedRow];
+             indexpath = [mytableview indexPathForSelectedRow];
              tittlestring = [tittlearray objectAtIndex:indexpath.row];
              sbutitlestring = [sbutitlearray objectAtIndex:indexpath.row];
              emailstirng = [emailarray objectAtIndex:indexpath.row];

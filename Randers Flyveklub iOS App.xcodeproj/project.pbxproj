@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		1816A0D618ED3D0F0073FB5D /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1816A0D518ED3D0F0073FB5D /* DetailViewController.m */; };
 		1816A0D818ED5D1C0073FB5D /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1816A0D718ED5D1C0073FB5D /* libsqlite3.dylib */; };
-		1816A0DA18ED66500073FB5D /* database.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 1816A0D918ED66500073FB5D /* database.sqlite */; };
+		1816A0DA18ED66500073FB5D /* database.sqllite in Resources */ = {isa = PBXBuildFile; fileRef = 1816A0D918ED66500073FB5D /* database.sqllite */; };
 		1816A0DC18ED67410073FB5D /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1816A0DB18ED67410073FB5D /* MessageUI.framework */; };
 		182AC6EF18EC83D90055BB08 /* ContaktsDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 182AC6EE18EC83D90055BB08 /* ContaktsDataViewController.m */; };
 		24AF0E8218EC0F6A00232C71 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AF0E8118EC0F6A00232C71 /* WebViewController.m */; };
@@ -61,7 +61,7 @@
 		1816A0D418ED3D0F0073FB5D /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		1816A0D518ED3D0F0073FB5D /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		1816A0D718ED5D1C0073FB5D /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
-		1816A0D918ED66500073FB5D /* database.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = database.sqlite; sourceTree = "<group>"; };
+		1816A0D918ED66500073FB5D /* database.sqllite */ = {isa = PBXFileReference; lastKnownFileType = file; path = database.sqllite; sourceTree = "<group>"; };
 		1816A0DB18ED67410073FB5D /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		182AC6ED18EC83D90055BB08 /* ContaktsDataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContaktsDataViewController.h; sourceTree = "<group>"; };
 		182AC6EE18EC83D90055BB08 /* ContaktsDataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContaktsDataViewController.m; sourceTree = "<group>"; };
@@ -214,6 +214,7 @@
 		B79B18B418EAD3EA00895821 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1816A0D918ED66500073FB5D /* database.sqllite */,
 				B79B18B518EAD3EA00895821 /* Randers Flyveklub iOS App-Info.plist */,
 				B79B18B618EAD3EA00895821 /* InfoPlist.strings */,
 				B79B18B918EAD3EA00895821 /* main.m */,
@@ -270,9 +271,8 @@
 		B7E56C3518EC3EC20003C942 /* Contact */ = {
 			isa = PBXGroup;
 			children = (
-				1816A0D918ED66500073FB5D /* database.sqlite */,
-				1816A0D418ED3D0F0073FB5D /* DetailViewController.h */,
 				1816A0D518ED3D0F0073FB5D /* DetailViewController.m */,
+				1816A0D418ED3D0F0073FB5D /* DetailViewController.h */,
 				182AC6ED18EC83D90055BB08 /* ContaktsDataViewController.h */,
 				182AC6EE18EC83D90055BB08 /* ContaktsDataViewController.m */,
 			);
@@ -371,7 +371,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1816A0DA18ED66500073FB5D /* database.sqlite in Resources */,
+				1816A0DA18ED66500073FB5D /* database.sqllite in Resources */,
 				B79B18C418EAD3EA00895821 /* Main_iPad.storyboard in Resources */,
 				B79B18CC18EAD3EA00895821 /* Images.xcassets in Resources */,
 				B79B18C118EAD3EA00895821 /* Main_iPhone.storyboard in Resources */,
