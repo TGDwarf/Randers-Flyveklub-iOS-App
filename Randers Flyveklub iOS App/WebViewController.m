@@ -57,6 +57,7 @@
     urls = [NSArray arrayWithObjects: @"http://dmi.dk/fileadmin/dmiappv2t3/", @"http://airfields.dk/", @"http://randersflyveklub.dk/pi-cam/",nil];
     NSURL *url = [NSURL URLWithString:urls[selId]];
     NSURLRequest *requesturl = [NSURLRequest requestWithURL:url];
+    WebView.scalesPageToFit = YES;
     [WebView loadRequest:requesturl];
     //http://www.dmi.dk/vejr/
     //http://www.airfields.dk/
