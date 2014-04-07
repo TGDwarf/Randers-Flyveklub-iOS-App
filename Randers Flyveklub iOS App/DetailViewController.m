@@ -14,13 +14,9 @@
 @end
 
 @implementation DetailViewController
-
-@synthesize navncontent;
+@synthesize navn, role, title;
+@synthesize navncontent, rolecontent, emailcontent;
 @synthesize navbar;
-@synthesize rolecontent;
-@synthesize title;
-@synthesize navn;
-@synthesize role;
 
 
 
