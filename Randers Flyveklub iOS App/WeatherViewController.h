@@ -17,5 +17,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *bane7Crosswind;
 @property (weak, nonatomic) IBOutlet UILabel *bane25Headwind;
 @property (weak, nonatomic) IBOutlet UILabel *bane25Crosswind;
+@property (weak, nonatomic) IBOutlet UILabel *lostConnectionMarker;
 
 @end

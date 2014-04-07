@@ -20,6 +20,7 @@
 @synthesize bane25Headwind;
 @synthesize bane7Crosswind;
 @synthesize bane7Headwind;
+@synthesize lostConnectionMarker;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -58,7 +59,7 @@ int lastResponseCounter = 15;// 15 instead of 0 to compensate for the 15 second 
 {
     receivedData = NULL;
 }
--(void)connectsion:(NSURLConnection *)connection didReceiveData:(NSData *)data
+-(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
     receivedData = data;
 }
@@ -67,12 +68,14 @@ int lastResponseCounter = 15;// 15 instead of 0 to compensate for the 15 second 
     lastResponseCounter += 15;
     //NSLog(@"%d",lastResponseCounter);
     if(lastResponseCounter >= 120){
+        lostConnectionMarker.text = @"connection error";
         NSLog(@"well...you lost net mate");
     }
 }
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
     lastResponseCounter = 15;// 15 instead of 0 to compensate for the 15 second timer + 15 second timeout
+    lostConnectionMarker.text = @"";
     NSString *s = [[NSString alloc] initWithData:receivedData encoding:NSUTF8StringEncoding];
     NSArray *a = [s componentsSeparatedByString:@" "];
     //NSLog();
