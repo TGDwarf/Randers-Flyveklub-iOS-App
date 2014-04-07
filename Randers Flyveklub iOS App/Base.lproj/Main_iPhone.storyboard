@@ -217,6 +217,7 @@
                         <outlet property="bane7Crosswind" destination="Bvq-0G-TiM" id="1Bc-a7-Xfz"/>
                         <outlet property="bane7Headwind" destination="b4x-C1-mq7" id="UKN-60-C4V"/>
                         <outlet property="dirLabel" destination="k5x-5f-Ck5" id="sqA-46-YHf"/>
+                        <outlet property="lostConnectionMarker" destination="5g4-Ei-iSH" id="w5c-r5-3yn"/>
                         <outlet property="pressureLabel" destination="lZW-SH-d6C" id="bp2-mn-jm7"/>
                         <outlet property="spdLabel" destination="kRU-S2-Fhc" id="jWI-Yu-ynm"/>
                     </connections>
