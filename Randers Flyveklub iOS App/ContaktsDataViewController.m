@@ -42,15 +42,17 @@
 - (void)viewDidLoad
 {
  
-    // Copy SQlite database from App-bundle to Sandbox
+
 
     
-    
+    /*download af content af google spreadsheet*/
     NSString *theURL = @"http://docs.google.com/spreadsheet/ccc?key=0AmByrnA8irO1dGpCVjFHbmlDUmlDNWtFMDJzcF9LR0E&output=csv";
     NSString *theFile = [NSString stringWithContentsOfURL:[NSURL URLWithString:theURL] encoding:NSUTF8StringEncoding error:nil];
-    NSLog(@"%@",theFile);
+    //NSLog(@"%@",theFile);
     NSArray *theCells = [theFile componentsSeparatedByString:@"\n"];
-    NSLog(@"%lu",(unsigned long)[theCells count]);
+    //NSLog(@"%lu",(unsigned long)[theCells count]);
+    
+    
     
     [super viewDidLoad];
     self.mytableview.delegate = self;
@@ -110,6 +112,62 @@
              [[segue destinationViewController]setEmailcontent:emailstirng];
          
          }
+}
+
+
+
+/*database import*/
+- (NSString *)copyResource:(NSString *)resource ofType:(NSString *)type
+{
+	NSLog(@"Copying %@.%@ to Sandbox...", resource, type);
+	
+	// Find path to Sandbox Documents
+	NSString *docDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+	//NSLog(@"docDir: %@", docDir);
+	
+	// Find named resource in bundle
+	NSString *srcDb = [[NSBundle mainBundle] pathForResource:resource ofType:type];
+	
+	//NSLog(@"Main bundle dir: %@", [NSBundle mainBundle]);
+	//NSLog(@"srcDb: %@", srcDb);
+	
+	// Build path to "Data" subdirectory in Sandbox Documents
+	NSString *dstDir = [docDir stringByAppendingPathComponent:@"Data"];
+	//NSLog(@"dstDir: %@", dstDir);
+	
+	// Build basename to resource in Sandbox Documents/Data
+	NSString *dstBase = [dstDir stringByAppendingPathComponent:resource];
+	//NSLog(@"dstBase: %@", dstBase);
+	
+	// Append resource extension to build full path to resource "Documents/Data/resource.type"
+	NSString *dstDb = nil;
+	dstDb = [dstBase stringByAppendingPathExtension:type];
+	//NSLog(@"dstDb: %@", dstDb);
+	
+	NSError *error = nil;
+	BOOL isDirectory = false;
+	
+	// Test if "Data" subdirectory exists in Sandbox "Documents"
+	if (![[NSFileManager defaultManager] fileExistsAtPath:dstDir isDirectory:&isDirectory])
+	{
+		NSLog(@"Path /Documents/Data does not exist");
+		
+		// Create "Data" subdirecotory
+		NSLog(@"Creating Data subdirectory...");
+		if (![[NSFileManager defaultManager] createDirectoryAtPath:dstDir withIntermediateDirectories:YES attributes:nil error:&error])
+			NSLog(@"Error creating directory:%@ \n", [error localizedDescription]);
+	}
+	
+	// Test if named resource exists in Documents/Data
+	if (![[NSFileManager defaultManager] fileExistsAtPath:dstDb])
+	{
+		// Copy the named resource from bundle to Documents/Data
+		if (![[NSFileManager defaultManager] copyItemAtPath:srcDb toPath:dstDb error:&error])
+			NSLog(@"Error: copying resource:%@\n", [error localizedDescription]);
+	}
+	
+	// Return full path to resource "Documents/Data/resource.type"
+	return dstDb;
 }
 
 
