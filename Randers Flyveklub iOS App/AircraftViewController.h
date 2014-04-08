@@ -10,6 +10,7 @@
 
 @interface AircraftViewController : UIViewController
 - (IBAction)calculate:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *calculate;
 @property (weak, nonatomic) IBOutlet UILabel *groundSpeed;
 @property (weak, nonatomic) IBOutlet UILabel *mach;
 @property (weak, nonatomic) IBOutlet UILabel *trueAirSpeed;

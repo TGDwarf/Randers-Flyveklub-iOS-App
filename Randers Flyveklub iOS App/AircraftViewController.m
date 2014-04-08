@@ -134,14 +134,27 @@
 	self.trueAirSpeed.text = [NSString stringWithFormat:@"%.2f knots", TAS];
 	self.mach.text = [NSString stringWithFormat:@"%.2f", MACH];
 	self.groundSpeed.text = [NSString stringWithFormat:@"%.2f knots", GS];
+    
 }
 - (IBAction)autoOnOff:(id)sender {
     if(self.autoOnOff.on)
     {
         self.height.text = @"0";
         //self.height.text = altitude;
+        self.track.enabled = NO;
+        self.height.enabled = NO;
+        self.windDirection.enabled = NO;
+        self.windSpeed.enabled = NO;
+        self.indicatedAirSpeed.enabled = NO;
+        self.calculate.enabled = NO;
     }else{
         self.height.text = @"";
+        self.height.enabled = YES;
+        self.windSpeed.enabled = YES;
+        self.windDirection.enabled = YES;
+        self.indicatedAirSpeed.enabled = YES;
+        self.track.enabled = YES;
+        self.calculate.enabled = YES;
     }
 }
 @end

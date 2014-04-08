@@ -224,10 +224,12 @@
                     <tabBarItem key="tabBarItem" title="Aircraft" image="first" id="ENj-Ih-QdA"/>
                     <connections>
                         <outlet property="autoOnOff" destination="gmG-Gg-xWr" id="qxc-b2-i9D"/>
+                        <outlet property="calculate" destination="Ooe-mo-8lg" id="h6X-Ab-NIn"/>
                         <outlet property="groundSpeed" destination="Fja-k6-sbN" id="3dG-V3-XkA"/>
                         <outlet property="height" destination="IkM-BN-gYN" id="Dug-P8-Y9S"/>
                         <outlet property="indicatedAirSpeed" destination="bYX-Ex-ra6" id="cFa-Ha-JEG"/>
                         <outlet property="mach" destination="YNI-cR-Zxs" id="sAV-Le-K0D"/>
+                        <outlet property="track" destination="qHl-ib-FPh" id="Dp2-8U-P1c"/>
                         <outlet property="trueAirSpeed" destination="QPG-gy-ufw" id="nhW-NP-6F6"/>
                         <outlet property="windDirection" destination="gNI-Re-uRk" id="jnX-ze-Y2C"/>
                         <outlet property="windSpeed" destination="2AO-jJ-Stc" id="anv-cy-i8e"/>
