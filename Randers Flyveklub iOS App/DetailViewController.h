@@ -18,8 +18,10 @@
 @property (strong, nonatomic) NSString *navncontent;
 @property (strong, nonatomic) NSString *rolecontent;
 @property (strong, nonatomic) NSString *emailcontent;
+@property (strong, nonatomic) NSString * picturelinkdata;
 - (IBAction)button:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *contakt;
+@property (weak, nonatomic) IBOutlet UIImageView *kontaktpic;
 
 
 @end
