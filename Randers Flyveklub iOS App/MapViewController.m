@@ -40,7 +40,12 @@
     mapView_.mapType = kGMSTypeSatellite;
     mapView_.indoorEnabled = NO;
     mapView_.myLocationEnabled = YES;
+
     NSLog(@"User's location: %@", mapView_.myLocation);
+    NSLog(@"User's location: %f", mapView_.myLocation.altitude);
+    NSLog(@"User's location: %f", mapView_.myLocation.speed);
+    
+    	
     self.view = mapView_;
 	
 	// Allocate array to hold data from data storage
