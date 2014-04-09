@@ -198,13 +198,13 @@
 		B79B18B318EAD3EA00895821 /* Randers Flyveklub iOS App */ = {
 			isa = PBXGroup;
 			children = (
+				B7E56C3518EC3EC20003C942 /* Contact */,
 				B7E56C4218EC3F4B0003C942 /* iPad */,
 				B7FD960318F54F080072FB84 /* Main_iPad.storyboard */,
 				B7FD960518F54F270072FB84 /* Main_iPhone.storyboard */,
 				B79B18BC18EAD3EA00895821 /* AppDelegate.h */,
 				B79B18BD18EAD3EA00895821 /* AppDelegate.m */,
 				B7E56C3318EC3EB10003C942 /* Map */,
-				B7E56C3518EC3EC20003C942 /* Contact */,
 				B7E56C3418EC3EB70003C942 /* Web */,
 				B7E56C3218EC3EA80003C942 /* Weather */,
 				B7E56C3618EC3EED0003C942 /* Aircraft */,

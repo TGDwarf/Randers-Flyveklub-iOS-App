@@ -70,6 +70,7 @@ int lastResponseCounter = 15;// 15 instead of 0 to compensate for the 15 second 
     if(lastResponseCounter >= 120){
         lostConnectionMarker.text = @"connection error";
         NSLog(@"well...you lost net mate");
+    
     }
 }
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection
