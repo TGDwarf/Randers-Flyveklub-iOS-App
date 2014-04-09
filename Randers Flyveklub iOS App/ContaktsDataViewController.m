@@ -15,6 +15,7 @@
     NSArray *tittlearray;
     NSArray *sbutitlearray;
     NSArray *emailarray;
+    NSArray *picturelink;
   
 }
 @end
@@ -61,6 +62,7 @@
     tittlearray = [theCells[0] componentsSeparatedByString:@","];
     sbutitlearray = [theCells[2] componentsSeparatedByString:@","];
     emailarray = [theCells[1] componentsSeparatedByString:@","];
+   picturelink = [theCells[3] componentsSeparatedByString:@","];
     
     
     /*Arrays der indholder vores contakt data*/
@@ -97,16 +99,19 @@
     if ([segue.identifier isEqualToString:@"detailsegue"])
          {
              /*definere strings til brug*/
-            NSIndexPath *indexpath = nil;
-            NSString *sbutitlestring = nil;
-            NSString *tittlestring = nil;
+             NSIndexPath *indexpath = nil;
+             NSString *sbutitlestring = nil;
+             NSString *tittlestring = nil;
              NSString *emailstirng = nil;
+             NSString *picturestring = nil;
              /*definere strings inholdet der skal pushes*/
              indexpath = [mytableview indexPathForSelectedRow];
              tittlestring = [tittlearray objectAtIndex:indexpath.row];
              sbutitlestring = [sbutitlearray objectAtIndex:indexpath.row];
              emailstirng = [emailarray objectAtIndex:indexpath.row];
+             picturestring = [picturelink objectAtIndex:indexpath.row];
              /*push data til detailviewcontrolleren*/
+             [[segue destinationViewController]setPicturelinkdata:picturestring];
              [[segue destinationViewController]setNavncontent:tittlestring];
              [[segue destinationViewController]setRolecontent:sbutitlestring];
              [[segue destinationViewController]setEmailcontent:emailstirng];

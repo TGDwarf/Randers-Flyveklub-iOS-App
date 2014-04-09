@@ -15,8 +15,8 @@
 
 @implementation DetailViewController
 @synthesize navn, role, title;
-@synthesize navncontent, rolecontent, emailcontent;
-@synthesize navbar;
+@synthesize navncontent, rolecontent, emailcontent, picturelinkdata;
+@synthesize navbar, kontaktpic;
 
 
 
@@ -32,9 +32,28 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+   
+    
+    
+    /*setting string*/
     self.navn.text = self.navncontent;
     self.role.text = self.rolecontent;
     self.email.text = self.emailcontent;
+    
+    
+    /*download af contakt picture*/
+    if ([picturelinkdata  isEqual: @""]) {
+        picturelinkdata = @"http://www.lovethesepics.com/wp-content/uploads/2012/12/Tux-vs-Apple-and-Microsoft.jpg";
+    }
+    
+    
+    NSString * myURL = picturelinkdata;
+    
+    UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:myURL]]];
+    
+    kontaktpic.image = image;
+    
+    
     // Do any additional setup after loading the view.
 }
 
