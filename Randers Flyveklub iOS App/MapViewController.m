@@ -7,7 +7,8 @@
 //
 
 #import "MapViewController.h"
-#import <GoogleMaps/GoogleMaps.h>
+#import "Airfield.h"
+#import "sqlite3.h"
 
 @interface MapViewController ()
 
@@ -15,54 +16,184 @@
 
 @implementation MapViewController
 {
+	// Global variables for SQLite
+	NSString       *db;             // Database name string
+	sqlite3        *dbh;            // Database handle
+	sqlite3_stmt   *stmt_query;     // Select statement handle
+	NSMutableArray *data;           // Container for data returned from query
+    
     GMSMapView *mapView_;
-}
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
 }
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
+	[super viewDidLoad];
+	// Do any additional setup after loading the view, typically from a nib.
     
     // Create a GMSCameraPosition that tells the map to display the
     // coordinate -33.86,151.20 at zoom level 6.
-    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:56.504979
-                                                            longitude:10.031934
-                                                                 zoom:9];
-    mapView_ = [GMSMapView mapWithFrame:CGRectZero camera:camera];
-    mapView_.myLocationEnabled = YES;
-    self.view = mapView_;
+    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:-33.86
+                                                            longitude:151.20
+                                                                 zoom:6];
     
-    // Creates a marker in the center of the map.
-    GMSMarker *marker = [[GMSMarker alloc] init];
-    marker.position = CLLocationCoordinate2DMake(56.504979, 10.031934);
-    marker.title = @"Randers Flyvestation";
-    marker.snippet = @"Denmark";
-    marker.map = mapView_;}
+    mapView_ = [GMSMapView mapWithFrame:CGRectZero camera:camera];
+    mapView_.mapType = kGMSTypeSatellite;
+    mapView_.indoorEnabled = NO;
+    mapView_.myLocationEnabled = YES;
+    NSLog(@"User's location: %@", mapView_.myLocation);
+    self.view = mapView_;
+	
+	// Allocate array to hold data from data storage
+	data = [[NSMutableArray alloc] init];
+	
+	// Copy SQlite database from App-bundle to Sandbox
+	db = [self copyResource:@"airfields" ofType:@"rdb"];
+	NSLog(@"Path to database: %@", db);
+	
+	// Open database
+	if (sqlite3_open_v2([db UTF8String], &dbh, SQLITE_OPEN_READWRITE, NULL) == SQLITE_OK)
+	{
+		NSLog(@"DB Opened");
+		// Reset statements
+		stmt_query = nil;
+		
+		if (!stmt_query)
+		{
+			// Prepare SQL select statement
+			NSString *sql = @"SELECT name, icao, country, latitude, longitude FROM airfields";
+			NSLog(@"Query: %@", sql);
+			if (sqlite3_prepare_v2(dbh, [sql UTF8String], -1, &stmt_query, nil) != SQLITE_OK)
+			{
+				int errmsg = sqlite3_prepare_v2(dbh, [sql UTF8String], -1, &stmt_query, nil);
+				NSLog(@"Error preparing SQL query. ERROR %d", errmsg);
+				NSLog(@"%s SQL error '%s' (%1d)", __FUNCTION__, sqlite3_errmsg((__bridge sqlite3 *)(db)), sqlite3_errcode((__bridge sqlite3 *)(db)));
+			}
+		}
+		
+		// Reset state of query statement
+		sqlite3_reset(stmt_query);
+		
+		// Fetch selected rows in airfields table and populate data array
+		NSLog(@"Loading airfields ...");
+		while (sqlite3_step(stmt_query) == SQLITE_ROW)
+		{
+			// Create airfield object and set properties
+			Airfield *airfield = [[Airfield alloc] init];
+			airfield.name = [[NSString alloc] initWithUTF8String:(char *)sqlite3_column_text(stmt_query, 0)];
+			airfield.icao = [[NSString alloc] initWithUTF8String:(char *)sqlite3_column_text(stmt_query, 1)];
+			airfield.country = [[NSString alloc] initWithUTF8String:(char *)sqlite3_column_text(stmt_query, 2)];
+			airfield.latitude = (double) sqlite3_column_double(stmt_query, 3);
+			airfield.longitude = (double) sqlite3_column_double(stmt_query, 4);
+			
+			// Append Airfield object to data array
+			[data addObject:airfield];
+//            NSLog(@"Airfield added");
+            
+            GMSMarker *marker = [[GMSMarker alloc] init];
+            marker.position = CLLocationCoordinate2DMake(airfield.latitude, airfield.longitude);
+            marker.title = airfield.name;
+            marker.snippet = airfield.icao;
+            marker.map = mapView_;
+            
+			//NSLog(@"Added Airfield: %@ (%@) in %@. Coordinates: %f - %f  (Tile %i/%i)", airfield.name, airfield.icao, airfield.country, airfield.latitude, airfield.longitude, airfield.tilecol, airfield.tilerow);
+		}
+		NSLog(@"Airfields loaded");
+		
+		sqlite3_finalize(stmt_query);
+		sqlite3_close(dbh);
+		NSLog(@"DB Closed");
+	}
+	else
+	{
+		NSLog(@"Error: Could not open database");
+	}
+	
+	self.locationManager = [[CLLocationManager alloc] init];
+	self.locationManager.delegate = self;
+	self.locationManager.distanceFilter = kCLDistanceFilterNone; // Update whenever we move
+	self.locationManager.desiredAccuracy = kCLLocationAccuracyBest; // Location Accuracy
+	[self.locationManager startUpdatingLocation];
+}
+
+// Copy a named resource from bundle to Documents/Data
+- (NSString *)copyResource:(NSString *)resource ofType:(NSString *)type
+{
+	NSLog(@"Copying %@.%@ to Sandbox...", resource, type);
+	
+	// Find path to Sandbox Documents
+	NSString *docDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+	//NSLog(@"docDir: %@", docDir);
+	
+	// Find named resource in bundle
+	NSString *srcDb = [[NSBundle mainBundle] pathForResource:resource ofType:type];
+	
+	//NSLog(@"Main bundle dir: %@", [NSBundle mainBundle]);
+	//NSLog(@"srcDb: %@", srcDb);
+	
+	// Build path to "Data" subdirectory in Sandbox Documents
+	NSString *dstDir = [docDir stringByAppendingPathComponent:@"Data"];
+	//NSLog(@"dstDir: %@", dstDir);
+	
+	// Build basename to resource in Sandbox Documents/Data
+	NSString *dstBase = [dstDir stringByAppendingPathComponent:resource];
+	//NSLog(@"dstBase: %@", dstBase);
+	
+	// Append resource extension to build full path to resource "Documents/Data/resource.type"
+	NSString *dstDb = nil;
+	dstDb = [dstBase stringByAppendingPathExtension:type];
+	//NSLog(@"dstDb: %@", dstDb);
+	
+	NSError *error = nil;
+	BOOL isDirectory = false;
+	
+	// Test if "Data" subdirectory exists in Sandbox "Documents"
+	if (![[NSFileManager defaultManager] fileExistsAtPath:dstDir isDirectory:&isDirectory])
+	{
+		NSLog(@"Path /Documents/Data does not exist");
+		
+		// Create "Data" subdirecotory
+		NSLog(@"Creating Data subdirectory...");
+		if (![[NSFileManager defaultManager] createDirectoryAtPath:dstDir withIntermediateDirectories:YES attributes:nil error:&error])
+			NSLog(@"Error creating directory:%@ \n", [error localizedDescription]);
+	}
+	
+	// Test if named resource exists in Documents/Data
+	if (![[NSFileManager defaultManager] fileExistsAtPath:dstDb])
+	{
+		// Copy the named resource from bundle to Documents/Data
+		if (![[NSFileManager defaultManager] copyItemAtPath:srcDb toPath:dstDb error:&error])
+			NSLog(@"Error: copying resource:%@\n", [error localizedDescription]);
+	}
+	
+	// Return full path to resource "Documents/Data/resource.type"
+	return dstDb;
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+{
+	// Update Current Location, if we have moved
+	if (newLocation.coordinate.latitude != oldLocation.coordinate.latitude)
+	{
+		self.currentGPSLocation = [[CLLocation alloc] initWithLatitude:newLocation.coordinate.latitude longitude:newLocation.coordinate.longitude];
+		NSLog(@"Current GPS Location: %f   %f", self.currentGPSLocation.coordinate.latitude, self.currentGPSLocation.coordinate.longitude);
+	}
+}
 
 - (void)didReceiveMemoryWarning
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+	[super didReceiveMemoryWarning];
+	// Dispose of any resources that can be recreated.
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+ {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <GoogleMaps/GoogleMaps.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface MapViewController : UIViewController
+@interface MapViewController : UIViewController<GMSMapViewDelegate, CLLocationManagerDelegate, NSXMLParserDelegate>
+
+@property (weak, nonatomic) IBOutlet UISwitch *showAirfields;
+@property (nonatomic) CLLocationManager *locationManager;
+@property (strong, nonatomic) CLLocation *currentGPSLocation;
 
 @end
