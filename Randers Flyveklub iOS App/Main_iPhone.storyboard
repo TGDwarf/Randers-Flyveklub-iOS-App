@@ -444,7 +444,6 @@
         <!--Detail View Controller-->
         <scene sceneID="9qU-Xz-Pe0">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Exr-BH-tc0" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="5Du-i8-IjE" customClass="DetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="CcF-OH-Syv"/>
@@ -539,6 +538,7 @@
                         <outlet property="role" destination="wno-Jt-wOZ" id="2uN-4t-2bb"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Exr-BH-tc0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="818" y="-1207"/>
         </scene>
