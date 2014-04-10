@@ -22,6 +22,7 @@
 - (IBAction)button:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *contakt;
 @property (weak, nonatomic) IBOutlet UIImageView *kontaktpic;
-
+@property (weak, nonatomic) NSData *image;
+@property (weak, nonatomic) IBOutlet UILabel *emailmessege;
 
 @end

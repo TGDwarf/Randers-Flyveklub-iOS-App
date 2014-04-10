@@ -111,6 +111,11 @@
              emailstirng = [emailarray objectAtIndex:indexpath.row];
              picturestring = [picturelink objectAtIndex:indexpath.row];
              /*push data til detailviewcontrolleren*/
+             if ([picturestring  isEqual: @""]) {
+                 picturestring = @"http://www.lovethesepics.com/wp-content/uploads/2012/12/Tux-vs-Apple-and-Microsoft.jpg";
+             }
+             UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:picturestring]]];
+             [[segue destinationViewController]setImage:image];
              [[segue destinationViewController]setPicturelinkdata:picturestring];
              [[segue destinationViewController]setNavncontent:tittlestring];
              [[segue destinationViewController]setRolecontent:sbutitlestring];
@@ -118,7 +123,27 @@
          
          }
 }
-
+-(void)downloadPics
+{//http://www.qbmob.com/?p=171 ---------JESPERS LINK
+    for (int i = 0; i < picturelink.count; i++) {
+        NSURL *url = [NSURL URLWithString:[picturelink objectAtIndex:i]];
+        NSURLRequest *requesturl = [NSURLRequest requestWithURL:url];
+        NSURLConnection * conn = [[NSURLConnection alloc] initWithRequest:requesturl delegate:self];
+        [conn start];
+    }
+}
+-(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+{
+    
+}
+-(void)connectionDidFinishLoading:(NSURLConnection *)connection
+{
+    
+}
+-(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+{
+    
+}
 
 
 /*database import*/
