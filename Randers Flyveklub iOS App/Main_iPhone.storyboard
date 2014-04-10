@@ -443,6 +443,7 @@
         <!--Detail View Controller-->
         <scene sceneID="9qU-Xz-Pe0">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Exr-BH-tc0" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="5Du-i8-IjE" customClass="DetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="CcF-OH-Syv"/>
@@ -516,6 +517,13 @@
                                 <rect key="frame" x="104" y="89" width="113" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M7j-qK-4sV">
+                                <rect key="frame" x="29" y="392" width="271" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -523,13 +531,13 @@
                     <connections>
                         <outlet property="contakt" destination="rts-cM-fOs" id="sKb-AP-Cvm"/>
                         <outlet property="email" destination="bWI-4c-XyA" id="Ui8-fx-BmF"/>
+                        <outlet property="emailmessege" destination="M7j-qK-4sV" id="LUq-YX-O0X"/>
                         <outlet property="kontaktpic" destination="MVK-5e-haJ" id="7i6-6c-Xsd"/>
                         <outlet property="navbar" destination="TrA-aP-JQZ" id="T8z-CP-ycZ"/>
                         <outlet property="navn" destination="yOk-iA-ifR" id="9Cv-tk-JW8"/>
                         <outlet property="role" destination="wno-Jt-wOZ" id="2uN-4t-2bb"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Exr-BH-tc0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="818" y="-1207"/>
         </scene>
@@ -621,6 +629,39 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5HT-MV-eQ5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-33" y="-1207"/>
+        </scene>
+        <!--Collection View Controller-->
+        <scene sceneID="DIq-8I-kLc">
+            <objects>
+                <collectionViewController autoresizesArchivedViewToFullSize="NO" id="CPq-8j-asr" sceneMemberID="viewController">
+                    <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="jns-FC-lLq">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="DGa-Yl-h3X">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Sbk-1n-8c3">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="CPq-8j-asr" id="qsC-29-u21"/>
+                            <outlet property="delegate" destination="CPq-8j-asr" id="57H-gT-kok"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vde-4T-SXA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
         </scene>
     </scenes>
     <resources>

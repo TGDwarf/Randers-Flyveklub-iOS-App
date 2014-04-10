@@ -14,10 +14,10 @@
 @end
 
 @implementation DetailViewController
-@synthesize navn, role, title;
+@synthesize navn, role, title ,emailmessege;
 @synthesize navncontent, rolecontent, emailcontent, picturelinkdata;
 @synthesize navbar, kontaktpic;
-
+@synthesize image;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -42,14 +42,13 @@
     
     
     /*download af contakt picture*/
-    if ([picturelinkdata  isEqual: @""]) {
-        picturelinkdata = @"http://www.lovethesepics.com/wp-content/uploads/2012/12/Tux-vs-Apple-and-Microsoft.jpg";
-    }
+   
     
     
-    NSString * myURL = picturelinkdata;
     
-    UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:myURL]]];
+    //NSString * myURL = picturelinkdata;
+    
+    //UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:myURL]]];
     
     kontaktpic.image = image;
     
@@ -78,6 +77,8 @@
 
 
 - (IBAction)button:(id)sender {
+    
+    
     // Email Subject
     NSString *emailTitle = [NSString stringWithFormat:@"%@ test mail", self.rolecontent ];
     // Email Content
@@ -87,12 +88,16 @@
     
     MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
     mc.mailComposeDelegate = self;
+    
+    if ([MFMailComposeViewController canSendMail]) {
+    
     [mc setSubject:emailTitle];
     [mc setMessageBody:messageBody isHTML:NO];
     [mc setToRecipients:toRecipents];
     
     // Present mail view controller on screen
     [self presentViewController:mc animated:YES completion:NULL];
+    }
     
 }
     

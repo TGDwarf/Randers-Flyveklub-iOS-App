@@ -111,6 +111,11 @@
              emailstirng = [emailarray objectAtIndex:indexpath.row];
              picturestring = [picturelink objectAtIndex:indexpath.row];
              /*push data til detailviewcontrolleren*/
+             if ([picturestring  isEqual: @""]) {
+                 picturestring = @"http://www.lovethesepics.com/wp-content/uploads/2012/12/Tux-vs-Apple-and-Microsoft.jpg";
+             }
+             UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:picturestring]]];
+             [[segue destinationViewController]setImage:image];
              [[segue destinationViewController]setPicturelinkdata:picturestring];
              [[segue destinationViewController]setNavncontent:tittlestring];
              [[segue destinationViewController]setRolecontent:sbutitlestring];
