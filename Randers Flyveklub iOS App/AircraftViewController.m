@@ -72,8 +72,14 @@
 */
 
 - (IBAction)calculate:(id)sender {
-    self.track.enabled = NO;
-    self.track.enabled = YES;
+    //self.track.enabled = NO;
+    //self.track.enabled = YES;
+    [self.track resignFirstResponder];
+    [self.height resignFirstResponder];
+    [self.indicatedAirSpeed resignFirstResponder];
+    [self.windSpeed resignFirstResponder];
+    [self.windDirection resignFirstResponder];
+    
     //input
 	float h = [self.height.text floatValue];
     float indicatedAirSpeed = [self.indicatedAirSpeed.text floatValue];
