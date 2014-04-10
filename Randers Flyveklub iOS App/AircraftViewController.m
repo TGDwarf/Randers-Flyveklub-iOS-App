@@ -16,13 +16,9 @@
 {
     GMSMapView *mapView_;
     
-    GMSOrientation Orientation;
+    GMSOrientation orientation;
     
-    CLLocation *l;
-    
-    const double *p;
-    
-    const CLLocationDirection *h;
+    CLLocation *locationFromGMaps;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -51,19 +47,19 @@
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     if([keyPath isEqualToString:@"myLocation"] && self.autoOnOff.on) {
-            l = [object myLocation];
+            locationFromGMaps = [object myLocation];
         //...
-        _altitudeFromGps = l.altitude;
-        _groundspeedFromGps = l.speed;
+        _altitudeFromGps = locationFromGMaps.altitude;
+        _groundspeedFromGps = locationFromGMaps.speed;
+        _headingFromGMaps = orientation.heading;
+        _pitchFromGMaps = orientation.pitch;
         self.height.text = [NSString stringWithFormat:@"%f", _altitudeFromGps];
         self.groundSpeed.text = [NSString stringWithFormat:@"%f", _groundspeedFromGps];
-        //self.heading.text = [NSString stringWithFormat:@"%", _headingFromGps]; FIXIE FIXIE
-        NSLog(@"User's location: %@", l);
-        NSLog(@"User's altitude: %f", l.altitude);
-        NSLog(@"User's speed: %f", l.speed);
-        h = &Orientation.heading;
-        
-        p = &Orientation.pitch;
+        self.heading.text = [NSString stringWithFormat:@"%f", _headingFromGMaps];
+        NSLog(@"User's location: %@", locationFromGMaps);
+        NSLog(@"User's altitude: %f", locationFromGMaps.altitude);
+        NSLog(@"User's speed: %f", locationFromGMaps.speed);
+
         
     }
 }

@@ -58,13 +58,14 @@
 	self.locationManager.desiredAccuracy = kCLLocationAccuracyBest; // Location Accuracy
 	[self.locationManager startUpdatingLocation];
     
-    [self performSelector:@selector(contactdatabase) withObject:self afterDelay:2.0 ];
+
     
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude: userlocation.coordinate.latitude
                                                             longitude: userlocation.coordinate.longitude
                                                                  zoom:6];
     mapView_ = [GMSMapView mapWithFrame:CGRectZero camera:camera];
     
+    [self performSelector:@selector(contactdatabase) withObject:self afterDelay:2.0 ];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
@@ -146,12 +147,14 @@
 		NSLog(@"Error: Could not open database");
 	}
     
-//    [self performSelectorInBackground:@selector(placepins) withObject:nil];
-        [self performSelector:@selector(placepins) withObject:self afterDelay:2.0 ];
+
+        [self performSelectorInBackground:@selector(placepins) withObject:nil];
+//        [self performSelector:@selector(placepins) withObject:self afterDelay:2.0 ];
 }
 
 -(void)placepins
 {
+    usleep(1000000);
     // Run through airfield array and place pins in this region
 	for (Airfield *airfield in data)
 	{

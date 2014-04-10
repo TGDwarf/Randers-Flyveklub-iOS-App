@@ -29,5 +29,6 @@
 
 @property (nonatomic) double altitudeFromGps;
 @property (nonatomic) double groundspeedFromGps;
-
+@property (nonatomic) double pitchFromGMaps;;
+@property (nonatomic) CLLocationDirection headingFromGMaps;
 @end
