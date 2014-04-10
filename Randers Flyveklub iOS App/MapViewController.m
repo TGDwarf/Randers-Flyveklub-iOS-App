@@ -60,12 +60,18 @@
     
 
     
-    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude: userlocation.coordinate.latitude
-                                                            longitude: userlocation.coordinate.longitude
+    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude: 56.504979
+                                                            longitude: 10.031934
                                                                  zoom:6];
     mapView_ = [GMSMapView mapWithFrame:CGRectZero camera:camera];
     
-    [self performSelector:@selector(contactdatabase) withObject:self afterDelay:2.0 ];
+    [self performSelector:@selector(contactdatabase) withObject:self afterDelay:1.0 ];
+    
+//    [NSTimer scheduledTimerWithTimeInterval:2.0f
+//                                     target:self
+//                                   selector:@selector(placepins)
+//                                   userInfo:nil
+//                                    repeats:YES];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
@@ -78,14 +84,6 @@
         NSLog(@"User's speed: %f", userlocation.speed);
         
     }
-}
-
--(void)makeregion
-{
-//    nearleft = &region.nearLeft;
-//    nearright = &region.nearRight;
-//    farleft = &region.farLeft;
-//    farright = &region.farRight;
 }
 
 -(void)contactdatabase
@@ -146,25 +144,34 @@
 	{
 		NSLog(@"Error: Could not open database");
 	}
-    
+        [self performSelector:@selector(placepins) withObject:self afterDelay:1.0 ];
 
-        [self performSelectorInBackground:@selector(placepins) withObject:nil];
-//        [self performSelector:@selector(placepins) withObject:self afterDelay:2.0 ];
+//        [self performSelectorInBackground:@selector(Timer) withObject:nil];
 }
+
+//-(void)Timer
+//{
+//    [NSTimer scheduledTimerWithTimeInterval:2.0f
+//                                     target:self
+//                                   selector:@selector(placepins)
+//                                   userInfo:nil
+//                                    repeats:YES];
+//    	NSLog(@"Timer started");
+//}
 
 -(void)placepins
 {
-    usleep(1000000);
+    NSLog(@"Start placing Pins");
     // Run through airfield array and place pins in this region
 	for (Airfield *airfield in data)
 	{
-        if ((airfield.latitude <= region.farLeft.latitude && airfield.longitude >= region.farLeft.longitude) && (airfield.latitude >= region.nearRight.latitude && airfield.longitude <= region.nearRight.longitude)) {
+//        if ((airfield.latitude <= region.farLeft.latitude && airfield.longitude >= region.farLeft.longitude) && (airfield.latitude >= region.nearRight.latitude && airfield.longitude <= region.nearRight.longitude)) {
             GMSMarker *marker = [[GMSMarker alloc] init];
             marker.position = CLLocationCoordinate2DMake(airfield.latitude, airfield.longitude);
             marker.title = airfield.name;
             marker.snippet = airfield.icao;
             marker.map = mapView_;
-        }
+//        }
 
 	}
 	NSLog(@"All pins placed");
