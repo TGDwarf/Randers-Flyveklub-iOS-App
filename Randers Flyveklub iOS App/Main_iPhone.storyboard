@@ -601,10 +601,10 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="zMo-Ls-2mb" kind="relationship" relationship="viewControllers" id="2ni-Oj-gHU"/>
-                        <segue destination="rVt-u9-Tfj" kind="relationship" relationship="viewControllers" id="VpN-Uh-0IC"/>
-                        <segue destination="DEc-cx-R9A" kind="relationship" relationship="viewControllers" id="yzS-u6-ztb"/>
                         <segue destination="SvM-Md-swg" kind="relationship" relationship="viewControllers" id="6Oa-N9-efn"/>
+                        <segue destination="rVt-u9-Tfj" kind="relationship" relationship="viewControllers" id="VpN-Uh-0IC"/>
+                        <segue destination="zMo-Ls-2mb" kind="relationship" relationship="viewControllers" id="2ni-Oj-gHU"/>
+                        <segue destination="DEc-cx-R9A" kind="relationship" relationship="viewControllers" id="yzS-u6-ztb"/>
                         <segue destination="CZ4-MO-1fc" kind="relationship" relationship="viewControllers" id="SUk-Ux-ee1"/>
                     </connections>
                 </tabBarController>
@@ -630,39 +630,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5HT-MV-eQ5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-33" y="-1207"/>
-        </scene>
-        <!--Collection View Controller-->
-        <scene sceneID="DIq-8I-kLc">
-            <objects>
-                <collectionViewController autoresizesArchivedViewToFullSize="NO" id="CPq-8j-asr" sceneMemberID="viewController">
-                    <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="jns-FC-lLq">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="DGa-Yl-h3X">
-                            <size key="itemSize" width="50" height="50"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        </collectionViewFlowLayout>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Sbk-1n-8c3">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                            </collectionViewCell>
-                        </cells>
-                        <connections>
-                            <outlet property="dataSource" destination="CPq-8j-asr" id="qsC-29-u21"/>
-                            <outlet property="delegate" destination="CPq-8j-asr" id="57H-gT-kok"/>
-                        </connections>
-                    </collectionView>
-                </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vde-4T-SXA" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
         </scene>
     </scenes>
     <resources>
