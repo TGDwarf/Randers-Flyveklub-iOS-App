@@ -41,17 +41,9 @@
     self.email.text = self.emailcontent;
     
     
-    /*download af contakt picture*/
+    /*download af contakt picture fra nsdata image */
    
-    
-    
-    
-    //NSString * myURL = picturelinkdata;
-    
-    //UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:myURL]]];
-    
-    kontaktpic.image = image;
-    
+    kontaktpic.image = (UIImage *)image;
     
     // Do any additional setup after loading the view.
 }
