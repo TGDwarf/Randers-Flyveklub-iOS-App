@@ -40,14 +40,39 @@
     mapView_.mapType = kGMSTypeSatellite;
     mapView_.indoorEnabled = NO;
     mapView_.myLocationEnabled = YES;
+    
+    [mapView_ addObserver:self forKeyPath:@"myLocation" options:0 context:nil];
 
     NSLog(@"User's location: %@", mapView_.myLocation);
     NSLog(@"User's location: %f", mapView_.myLocation.altitude);
     NSLog(@"User's location: %f", mapView_.myLocation.speed);
+
     
-    	
     self.view = mapView_;
-	
+		
+	self.locationManager = [[CLLocationManager alloc] init];
+	self.locationManager.delegate = self;
+	self.locationManager.distanceFilter = kCLDistanceFilterNone; // Update whenever we move
+	self.locationManager.desiredAccuracy = kCLLocationAccuracyBest; // Location Accuracy
+	[self.locationManager startUpdatingLocation];
+    
+    //self observeValueForKeyPath:<#(NSString *)#> ofObject:<#(id)#> change:<#(NSDictionary *)#> context:<#(void *)#>
+    
+    [self performSelector:@selector(contactdatabase) withObject:self afterDelay:2.0 ];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    if([keyPath isEqualToString:@"myLocation"]) {
+        CLLocation *l = [object myLocation];
+        //...
+        NSLog(@"User's location: %@", l);
+        NSLog(@"User's altitude: %f", l.altitude);
+        NSLog(@"User's speed: %f", l.speed);
+    }
+}
+
+-(void)contactdatabase
+{
 	// Allocate array to hold data from data storage
 	data = [[NSMutableArray alloc] init];
 	
@@ -92,13 +117,7 @@
 			
 			// Append Airfield object to data array
 			[data addObject:airfield];
-//            NSLog(@"Airfield added");
-            
-            GMSMarker *marker = [[GMSMarker alloc] init];
-            marker.position = CLLocationCoordinate2DMake(airfield.latitude, airfield.longitude);
-            marker.title = airfield.name;
-            marker.snippet = airfield.icao;
-            marker.map = mapView_;
+            //NSLog(@"Airfield added");
             
 			//NSLog(@"Added Airfield: %@ (%@) in %@. Coordinates: %f - %f  (Tile %i/%i)", airfield.name, airfield.icao, airfield.country, airfield.latitude, airfield.longitude, airfield.tilecol, airfield.tilerow);
 		}
@@ -112,12 +131,22 @@
 	{
 		NSLog(@"Error: Could not open database");
 	}
-	
-	self.locationManager = [[CLLocationManager alloc] init];
-	self.locationManager.delegate = self;
-	self.locationManager.distanceFilter = kCLDistanceFilterNone; // Update whenever we move
-	self.locationManager.desiredAccuracy = kCLLocationAccuracyBest; // Location Accuracy
-	[self.locationManager startUpdatingLocation];
+    
+    [self performSelector:@selector(placepins) withObject:self afterDelay:2.0 ];
+}
+
+-(void)placepins
+{
+    // Run through airfield array and place pins in this region
+	for (Airfield *airfield in data)
+	{
+		GMSMarker *marker = [[GMSMarker alloc] init];
+        marker.position = CLLocationCoordinate2DMake(airfield.latitude, airfield.longitude);
+        marker.title = airfield.name;
+        marker.snippet = airfield.icao;
+        marker.map = mapView_;
+	}
+	NSLog(@"All pins placed");
 }
 
 // Copy a named resource from bundle to Documents/Data
