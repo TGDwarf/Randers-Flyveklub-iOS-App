@@ -42,11 +42,13 @@
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-    if([keyPath isEqualToString:@"myLocation"]) {
+    if([keyPath isEqualToString:@"myLocation"] && self.autoOnOff.on) {
         CLLocation *l = [object myLocation];
         //...
         _altitudeFromGps = l.altitude;
         _groundspeedFromGps = l.speed;
+        self.height.text = [NSString stringWithFormat:@"%f", _altitudeFromGps];
+        self.groundSpeed.text = [NSString stringWithFormat:@"%f", _groundspeedFromGps];
         NSLog(@"User's location: %@", l);
         NSLog(@"User's altitude: %f", l.altitude);
         NSLog(@"User's speed: %f", l.speed);
@@ -70,6 +72,8 @@
 */
 
 - (IBAction)calculate:(id)sender {
+    self.track.enabled = NO;
+    self.track.enabled = YES;
     //input
 	float h = [self.height.text floatValue];
     float indicatedAirSpeed = [self.indicatedAirSpeed.text floatValue];
@@ -137,9 +141,6 @@
     if(self.autoOnOff.on)
     {
         self.height.text = @"0";
-        self.height.text = [NSString stringWithFormat:@"%f", _altitudeFromGps];
-        self.groundSpeed.text = [NSString stringWithFormat:@"%f", _groundspeedFromGps];
-        self.track.enabled = NO;
         self.height.enabled = NO;
     }else{
         self.height.text = @"";
