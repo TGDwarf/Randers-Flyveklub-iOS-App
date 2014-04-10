@@ -9,6 +9,7 @@
 #import "MapViewController.h"
 #import "Airfield.h"
 #import "sqlite3.h"
+#import "AppDelegate.h"
 
 @interface MapViewController ()
 
@@ -16,13 +17,17 @@
 
 @implementation MapViewController
 {
+    GMSMapView *mapView_;
+    
 	// Global variables for SQLite
 	NSString       *db;             // Database name string
 	sqlite3        *dbh;            // Database handle
 	sqlite3_stmt   *stmt_query;     // Select statement handle
 	NSMutableArray *data;           // Container for data returned from query
     
-    GMSMapView *mapView_;
+    
+    CLLocation *userlocation;       // Users Location
+    GMSVisibleRegion region;        // Vissible Area of Map
 }
 
 - (void)viewDidLoad
@@ -32,14 +37,11 @@
     
     // Create a GMSCameraPosition that tells the map to display the
     // coordinate -33.86,151.20 at zoom level 6.
-    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:-33.86
-                                                            longitude:151.20
-                                                                 zoom:6];
     
-    mapView_ = [GMSMapView mapWithFrame:CGRectZero camera:camera];
     mapView_.mapType = kGMSTypeSatellite;
     mapView_.indoorEnabled = NO;
     mapView_.myLocationEnabled = YES;
+
     
     [mapView_ addObserver:self forKeyPath:@"myLocation" options:0 context:nil];
 
@@ -56,19 +58,33 @@
 	self.locationManager.desiredAccuracy = kCLLocationAccuracyBest; // Location Accuracy
 	[self.locationManager startUpdatingLocation];
     
-    //self observeValueForKeyPath:<#(NSString *)#> ofObject:<#(id)#> change:<#(NSDictionary *)#> context:<#(void *)#>
-    
     [self performSelector:@selector(contactdatabase) withObject:self afterDelay:2.0 ];
+    
+    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude: userlocation.coordinate.latitude
+                                                            longitude: userlocation.coordinate.longitude
+                                                                 zoom:6];
+    mapView_ = [GMSMapView mapWithFrame:CGRectZero camera:camera];
+    
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     if([keyPath isEqualToString:@"myLocation"]) {
-        CLLocation *l = [object myLocation];
+        userlocation = [object myLocation];
         //...
-        NSLog(@"User's location: %@", l);
-        NSLog(@"User's altitude: %f", l.altitude);
-        NSLog(@"User's speed: %f", l.speed);
+        NSLog(@"User's latitude: %f", userlocation.coordinate.latitude);
+        NSLog(@"User's longitude: %f", userlocation.coordinate.longitude);
+        NSLog(@"User's altitude: %f", userlocation.altitude);
+        NSLog(@"User's speed: %f", userlocation.speed);
+        
     }
+}
+
+-(void)makeregion
+{
+//    nearleft = &region.nearLeft;
+//    nearright = &region.nearRight;
+//    farleft = &region.farLeft;
+//    farright = &region.farRight;
 }
 
 -(void)contactdatabase
@@ -118,8 +134,6 @@
 			// Append Airfield object to data array
 			[data addObject:airfield];
             //NSLog(@"Airfield added");
-            
-			//NSLog(@"Added Airfield: %@ (%@) in %@. Coordinates: %f - %f  (Tile %i/%i)", airfield.name, airfield.icao, airfield.country, airfield.latitude, airfield.longitude, airfield.tilecol, airfield.tilerow);
 		}
 		NSLog(@"Airfields loaded");
 		
@@ -132,7 +146,8 @@
 		NSLog(@"Error: Could not open database");
 	}
     
-    [self performSelector:@selector(placepins) withObject:self afterDelay:2.0 ];
+//    [self performSelectorInBackground:@selector(placepins) withObject:nil];
+        [self performSelector:@selector(placepins) withObject:self afterDelay:2.0 ];
 }
 
 -(void)placepins
@@ -140,11 +155,14 @@
     // Run through airfield array and place pins in this region
 	for (Airfield *airfield in data)
 	{
-		GMSMarker *marker = [[GMSMarker alloc] init];
-        marker.position = CLLocationCoordinate2DMake(airfield.latitude, airfield.longitude);
-        marker.title = airfield.name;
-        marker.snippet = airfield.icao;
-        marker.map = mapView_;
+        if ((airfield.latitude <= region.farLeft.latitude && airfield.longitude >= region.farLeft.longitude) && (airfield.latitude >= region.nearRight.latitude && airfield.longitude <= region.nearRight.longitude)) {
+            GMSMarker *marker = [[GMSMarker alloc] init];
+            marker.position = CLLocationCoordinate2DMake(airfield.latitude, airfield.longitude);
+            marker.title = airfield.name;
+            marker.snippet = airfield.icao;
+            marker.map = mapView_;
+        }
+
 	}
 	NSLog(@"All pins placed");
 }
