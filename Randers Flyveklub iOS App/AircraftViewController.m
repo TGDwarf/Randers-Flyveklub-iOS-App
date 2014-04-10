@@ -13,6 +13,9 @@
 @end
 
 @implementation AircraftViewController
+{
+    GMSMapView *mapView_;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,6 +30,27 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:-33.86
+                                                            longitude:151.20
+                                                                 zoom:6];
+
+    mapView_ = [GMSMapView mapWithFrame:CGRectZero camera:camera];
+    mapView_.myLocationEnabled = YES;
+   [mapView_ addObserver:self forKeyPath:@"myLocation" options:0 context:nil];
+    
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    if([keyPath isEqualToString:@"myLocation"]) {
+        CLLocation *l = [object myLocation];
+        //...
+        _altitudeFromGps = l.altitude;
+        _groundspeedFromGps = l.speed;
+        NSLog(@"User's location: %@", l);
+        NSLog(@"User's altitude: %f", l.altitude);
+        NSLog(@"User's speed: %f", l.speed);
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -137,8 +161,8 @@
     if(self.autoOnOff.on)
     {
         self.height.text = @"0";
-        //self.height.text = altitudeFromGps;
-        //self.groundSpeed.text = groundspeedFromGps
+        self.height.text = [NSString stringWithFormat:@"%f", _altitudeFromGps];
+        self.groundSpeed.text = [NSString stringWithFormat:@"%f", _groundspeedFromGps];
         self.track.enabled = NO;
         self.height.enabled = NO;
         self.windDirection.enabled = NO;
