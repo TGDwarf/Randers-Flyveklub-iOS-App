@@ -64,12 +64,6 @@
     emailarray = [theCells[1] componentsSeparatedByString:@","];
    picturelink = [theCells[3] componentsSeparatedByString:@","];
     
-    
-    /*Arrays der indholder vores contakt data*/
-    //tittlearray = [[NSMutableArray alloc]initWithObjects:@"TGDrowf",@"Satans Nisser",@"JesperB21", nil];
-    //sbutitlearray =[[NSMutableArray alloc]initWithObjects:@"Slave Pisker",@"developer",@"developer", nil];
-    //emailarray = [[NSMutableArray alloc]initWithObjects:@"hulletijorden@mercantec.dk",@"maso@mercantec.dk",@"jesper@mercanteac.dk", nil];
-    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning
@@ -110,10 +104,11 @@
              sbutitlestring = [sbutitlearray objectAtIndex:indexpath.row];
              emailstirng = [emailarray objectAtIndex:indexpath.row];
              picturestring = [picturelink objectAtIndex:indexpath.row];
-             /*push data til detailviewcontrolleren*/
+            
              if ([picturestring  isEqual: @""]) {
                  picturestring = @"http://www.lovethesepics.com/wp-content/uploads/2012/12/Tux-vs-Apple-and-Microsoft.jpg";
              }
+              /*push data til detailviewcontrolleren*/
              UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:picturestring]]];
              [[segue destinationViewController]setImage:image];
              [[segue destinationViewController]setPicturelinkdata:picturestring];

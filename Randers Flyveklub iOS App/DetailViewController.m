@@ -42,7 +42,9 @@
     
     
     /*download af contakt picture fra nsdata image */
+    if ([image isEqual:nil]) {
    
+    }
     kontaktpic.image = (UIImage *)image;
     
     // Do any additional setup after loading the view.
