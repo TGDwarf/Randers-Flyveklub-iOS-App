@@ -600,11 +600,11 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
+                        <segue destination="zMo-Ls-2mb" kind="relationship" relationship="viewControllers" id="2ni-Oj-gHU"/>
+                        <segue destination="rVt-u9-Tfj" kind="relationship" relationship="viewControllers" id="VpN-Uh-0IC"/>
                         <segue destination="DEc-cx-R9A" kind="relationship" relationship="viewControllers" id="yzS-u6-ztb"/>
                         <segue destination="SvM-Md-swg" kind="relationship" relationship="viewControllers" id="6Oa-N9-efn"/>
                         <segue destination="CZ4-MO-1fc" kind="relationship" relationship="viewControllers" id="SUk-Ux-ee1"/>
-                        <segue destination="zMo-Ls-2mb" kind="relationship" relationship="viewControllers" id="2ni-Oj-gHU"/>
-                        <segue destination="rVt-u9-Tfj" kind="relationship" relationship="viewControllers" id="VpN-Uh-0IC"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FNP-y4-bzi" sceneMemberID="firstResponder"/>

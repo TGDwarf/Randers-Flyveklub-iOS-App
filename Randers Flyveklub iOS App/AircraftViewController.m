@@ -13,6 +13,9 @@
 @end
 
 @implementation AircraftViewController
+{
+    GMSMapView *mapView_;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,6 +30,29 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:-33.86
+                                                            longitude:151.20
+                                                                 zoom:6];
+
+    mapView_ = [GMSMapView mapWithFrame:CGRectZero camera:camera];
+    mapView_.myLocationEnabled = YES;
+   [mapView_ addObserver:self forKeyPath:@"myLocation" options:0 context:nil];
+    
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    if([keyPath isEqualToString:@"myLocation"] && self.autoOnOff.on) {
+        CLLocation *l = [object myLocation];
+        //...
+        _altitudeFromGps = l.altitude;
+        _groundspeedFromGps = l.speed;
+        self.height.text = [NSString stringWithFormat:@"%f", _altitudeFromGps];
+        self.groundSpeed.text = [NSString stringWithFormat:@"%f", _groundspeedFromGps];
+        NSLog(@"User's location: %@", l);
+        NSLog(@"User's altitude: %f", l.altitude);
+        NSLog(@"User's speed: %f", l.speed);
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -46,9 +72,11 @@
 */
 
 - (IBAction)calculate:(id)sender {
+    self.track.enabled = NO;
+    self.track.enabled = YES;
     //input
 	float h = [self.height.text floatValue];
-	float indicatedAirSpeed = [self.indicatedAirSpeed.text floatValue];
+    float indicatedAirSpeed = [self.indicatedAirSpeed.text floatValue];
 	float windDirection = [self.windDirection.text floatValue];
 	float windSpeed = [self.windSpeed.text floatValue];
 	float track = [self.track.text floatValue];
@@ -101,58 +129,22 @@
 	float GS = TAS - windSpeed * cosf(windAngle1);
 	self.trueAirSpeed.text = [NSString stringWithFormat:@"%.2f knots", TAS];
 	self.mach.text = [NSString stringWithFormat:@"%.2f", MACH];
-	self.groundSpeed.text = [NSString stringWithFormat:@"%.2f knots", GS];
-    
+    if(self.autoOnOff.on){
+        GS = [[[self.groundSpeed.text componentsSeparatedByString:@" knots"] objectAtIndex:0] floatValue];
+        self.groundSpeed.text = [NSString stringWithFormat:@"%.2f knots (GPS)", GS];
+    }else{
+        self.groundSpeed.text = [NSString stringWithFormat:@"%.2f knots", GS];
+    }
 }
--(void)reverseCalc
-{
-    //input
-	float h = [self.height.text floatValue];
-	float indicatedAirSpeed = [self.indicatedAirSpeed.text floatValue];
-	float windDirection = [self.windDirection.text floatValue];
-	float windSpeed = [self.windSpeed.text floatValue];
-	float track = [self.track.text floatValue];
-	//renewed input
-    float GS = 3;//GPS INSERT HERE          GS
-    h = 3000; //GPS INSERT HERE                  h
-    // Global Constants
-	const float pi = M_PI;
-	const float rad = pi / 180; //degrees to rads ratio (degrees * this_value = rad)
-	const float deg = 180 / pi; //rads to degrees ratio (rads * this_value = degrees)
-	const float T0 = 288.15;	 // Sea level standard temperature 						288.15 K
-	const float TropT = 216.5;
-	// Calculate Atmospheric Pressure
-	const float g  = 9.81;   //gravity
-	const float R = 287;
-	const float L  = 0.00198;    // "temperature lapse rate"
-	const float P0 = 1013.25;    // Sea level standard atmospheric pressure		101325 Pa
-	const float TropP = 226;
-	const float fm = 3.28126;   // feet/meter ratio
-	
-	
-}
-
 
 - (IBAction)autoOnOff:(id)sender {
     if(self.autoOnOff.on)
     {
         self.height.text = @"0";
-        //self.height.text = altitudeFromGps;
-        //self.groundSpeed.text = groundspeedFromGps
-        self.track.enabled = NO;
         self.height.enabled = NO;
-        self.windDirection.enabled = NO;
-        self.windSpeed.enabled = NO;
-        self.indicatedAirSpeed.enabled = NO;
-        self.calculate.enabled = NO;
     }else{
         self.height.text = @"";
         self.height.enabled = YES;
-        self.windSpeed.enabled = YES;
-        self.windDirection.enabled = YES;
-        self.indicatedAirSpeed.enabled = YES;
-        self.track.enabled = YES;
-        self.calculate.enabled = YES;
     }
 }
 @end

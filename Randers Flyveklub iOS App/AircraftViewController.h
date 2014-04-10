@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <GoogleMaps/GoogleMaps.h>
 
 @interface AircraftViewController : UIViewController
 - (IBAction)calculate:(id)sender;
@@ -21,5 +22,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *height;
 @property (weak, nonatomic) IBOutlet UISwitch *autoOnOff;
 - (IBAction)autoOnOff:(id)sender;
+
+@property (nonatomic) double altitudeFromGps;
+@property (nonatomic) double groundspeedFromGps;
 
 @end
