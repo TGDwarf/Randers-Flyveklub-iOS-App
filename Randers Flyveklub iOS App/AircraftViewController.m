@@ -15,6 +15,14 @@
 @implementation AircraftViewController
 {
     GMSMapView *mapView_;
+    
+    GMSOrientation Orientation;
+    
+    CLLocation *l;
+    
+    const double *p;
+    
+    const CLLocationDirection *h;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -43,7 +51,7 @@
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     if([keyPath isEqualToString:@"myLocation"] && self.autoOnOff.on) {
-        CLLocation *l = [object myLocation];
+            l = [object myLocation];
         //...
         _altitudeFromGps = l.altitude;
         _groundspeedFromGps = l.speed;
@@ -52,6 +60,10 @@
         NSLog(@"User's location: %@", l);
         NSLog(@"User's altitude: %f", l.altitude);
         NSLog(@"User's speed: %f", l.speed);
+        h = &Orientation.heading;
+        
+        p = &Orientation.pitch;
+        
     }
 }
 
