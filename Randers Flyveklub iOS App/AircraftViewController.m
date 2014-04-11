@@ -49,6 +49,7 @@
         _groundspeedFromGps = l.speed;
         self.height.text = [NSString stringWithFormat:@"%f", _altitudeFromGps];
         self.groundSpeed.text = [NSString stringWithFormat:@"%f", _groundspeedFromGps];
+        //self.heading.text = [NSString stringWithFormat:@"%", _headingFromGps]; FIXIE FIXIE
         NSLog(@"User's location: %@", l);
         NSLog(@"User's altitude: %f", l.altitude);
         NSLog(@"User's speed: %f", l.speed);
@@ -131,6 +132,9 @@
 	int drift = round(deg * asinf(windComp));
 	int trackInt = round(track);
 	float heading = (float) ((360 + trackInt - drift) % 360);
+    if(self.autoOnOff.on){
+        heading = [self.heading.text floatValue];
+    }
 	float windAngle1 = rad * (heading - windDirection);
 	float GS = TAS - windSpeed * cosf(windAngle1);
 	self.trueAirSpeed.text = [NSString stringWithFormat:@"%.2f knots", TAS];

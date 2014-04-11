@@ -207,6 +207,19 @@
                                     <action selector="autoOnOff:" destination="rVt-u9-Tfj" eventType="valueChanged" id="D2K-qj-L8S"/>
                                 </connections>
                             </switch>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="heading" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fEN-Lz-fhP">
+                                <rect key="frame" x="20" y="360" width="100" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zY7-vL-UPg">
+                                <rect key="frame" x="136" y="360" width="164" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -215,6 +228,7 @@
                         <outlet property="autoOnOff" destination="gmG-Gg-xWr" id="qxc-b2-i9D"/>
                         <outlet property="calculate" destination="Ooe-mo-8lg" id="h6X-Ab-NIn"/>
                         <outlet property="groundSpeed" destination="Fja-k6-sbN" id="3dG-V3-XkA"/>
+                        <outlet property="heading" destination="zY7-vL-UPg" id="yGO-Zj-0pp"/>
                         <outlet property="height" destination="IkM-BN-gYN" id="Dug-P8-Y9S"/>
                         <outlet property="indicatedAirSpeed" destination="bYX-Ex-ra6" id="cFa-Ha-JEG"/>
                         <outlet property="mach" destination="YNI-cR-Zxs" id="sAV-Le-K0D"/>
