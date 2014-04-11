@@ -118,7 +118,27 @@
          
          }
 }
-
+-(void)downloadPics
+{//http://www.qbmob.com/?p=171 ---------JESPERS LINK
+    for (int i = 0; i < picturelink.count; i++) {
+        NSURL *url = [NSURL URLWithString:[picturelink objectAtIndex:i]];
+        NSURLRequest *requesturl = [NSURLRequest requestWithURL:url];
+        NSURLConnection * conn = [[NSURLConnection alloc] initWithRequest:requesturl delegate:self];
+        [conn start];
+    }
+}
+-(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+{
+    
+}
+-(void)connectionDidFinishLoading:(NSURLConnection *)connection
+{
+    
+}
+-(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+{
+    
+}
 
 
 /*database import*/

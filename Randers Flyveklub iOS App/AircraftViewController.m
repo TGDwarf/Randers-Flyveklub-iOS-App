@@ -15,6 +15,14 @@
 @implementation AircraftViewController
 {
     GMSMapView *mapView_;
+    
+    GMSOrientation Orientation;
+    
+    CLLocation *l;
+    
+    const double *p;
+    
+    const CLLocationDirection *h;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -43,15 +51,20 @@
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     if([keyPath isEqualToString:@"myLocation"] && self.autoOnOff.on) {
-        CLLocation *l = [object myLocation];
+            l = [object myLocation];
         //...
         _altitudeFromGps = l.altitude;
         _groundspeedFromGps = l.speed;
         self.height.text = [NSString stringWithFormat:@"%f", _altitudeFromGps];
         self.groundSpeed.text = [NSString stringWithFormat:@"%f", _groundspeedFromGps];
+        //self.heading.text = [NSString stringWithFormat:@"%", _headingFromGps]; FIXIE FIXIE
         NSLog(@"User's location: %@", l);
         NSLog(@"User's altitude: %f", l.altitude);
         NSLog(@"User's speed: %f", l.speed);
+        h = &Orientation.heading;
+        
+        p = &Orientation.pitch;
+        
     }
 }
 
@@ -131,13 +144,16 @@
 	int drift = round(deg * asinf(windComp));
 	int trackInt = round(track);
 	float heading = (float) ((360 + trackInt - drift) % 360);
+    if(self.autoOnOff.on){
+        heading = [self.heading.text floatValue];
+    }
 	float windAngle1 = rad * (heading - windDirection);
 	float GS = TAS - windSpeed * cosf(windAngle1);
 	self.trueAirSpeed.text = [NSString stringWithFormat:@"%.2f knots", TAS];
 	self.mach.text = [NSString stringWithFormat:@"%.2f", MACH];
     if(self.autoOnOff.on){
         GS = [[[self.groundSpeed.text componentsSeparatedByString:@" knots"] objectAtIndex:0] floatValue];
-        self.groundSpeed.text = [NSString stringWithFormat:@"%.2f knots (GPS)", GS];
+        self.groundSpeed.text = [NSString stringWithFormat:@"%.2f knots", GS];
     }else{
         self.groundSpeed.text = [NSString stringWithFormat:@"%.2f knots", GS];
     }
@@ -148,9 +164,15 @@
     {
         self.height.text = @"0";
         self.height.enabled = NO;
+        self.headingLabel.text = @"Heading (GPS)";
+        self.altitudeLabel.text = @"Altitude (GPS)";
+        self.groundSpeedLabel.text = @"Ground Speed (GPS)";
     }else{
         self.height.text = @"";
         self.height.enabled = YES;
+        self.headingLabel.text = @"Heading";
+        self.altitudeLabel.text = @"Altitude";
+        self.groundSpeedLabel.text = @"Ground Speed";
     }
 }
 @end
