@@ -22,6 +22,9 @@
 @property (weak, nonatomic) IBOutlet UITextField *height;
 @property (weak, nonatomic) IBOutlet UISwitch *autoOnOff;
 @property (weak, nonatomic) IBOutlet UILabel *heading;
+@property (weak, nonatomic) IBOutlet UILabel *altitudeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *headingLabel;
+@property (weak, nonatomic) IBOutlet UILabel *groundSpeedLabel;
 - (IBAction)autoOnOff:(id)sender;
 
 @property (nonatomic) double altitudeFromGps;

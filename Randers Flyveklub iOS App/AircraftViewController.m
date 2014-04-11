@@ -141,7 +141,7 @@
 	self.mach.text = [NSString stringWithFormat:@"%.2f", MACH];
     if(self.autoOnOff.on){
         GS = [[[self.groundSpeed.text componentsSeparatedByString:@" knots"] objectAtIndex:0] floatValue];
-        self.groundSpeed.text = [NSString stringWithFormat:@"%.2f knots (GPS)", GS];
+        self.groundSpeed.text = [NSString stringWithFormat:@"%.2f knots", GS];
     }else{
         self.groundSpeed.text = [NSString stringWithFormat:@"%.2f knots", GS];
     }
@@ -152,9 +152,15 @@
     {
         self.height.text = @"0";
         self.height.enabled = NO;
+        self.headingLabel.text = @"Heading (GPS)";
+        self.altitudeLabel.text = @"Altitude (GPS)";
+        self.groundSpeedLabel.text = @"Ground Speed (GPS)";
     }else{
         self.height.text = @"";
         self.height.enabled = YES;
+        self.headingLabel.text = @"Heading";
+        self.altitudeLabel.text = @"Altitude";
+        self.groundSpeedLabel.text = @"Ground Speed";
     }
 }
 @end
